@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Shadow Rooftop — A premium dining experience overlooking the Pyramids of Giza, Cairo, Egypt." />
+  <meta name="theme-color" content="#070A0F" />
+  <title>Shadow Rooftop — Dining Above History</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Cormorant Garamond: elegant serif for headings | Manrope: clean, geometric sans for body | Cinzel: elegant serif for prices -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SPLASH SCREEN
+  ============================================================ -->
+  <div id="splash" class="splash" role="dialog" aria-label="Shadow Rooftop loading screen" aria-modal="true">
+    <div class="splash__bg"></div>
+
+    <!-- Subtle pyramid SVG watermark -->
+    <div class="splash__pyramid" aria-hidden="true">
+      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="60,4 116,76 4,76" stroke="#C9A45C" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <polygon points="60,18 102,76 18,76" stroke="#C9A45C" stroke-width="0.8" fill="none" opacity="0.25"/>
+        <!-- Eye of Ra simplified -->
+        <ellipse cx="60" cy="52" rx="10" ry="6" stroke="#C9A45C" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <circle cx="60" cy="52" r="3" fill="#C9A45C" opacity="0.7"/>
+        <!-- Rays -->
+        <line x1="60" y1="24" x2="60" y2="42" stroke="#C9A45C" stroke-width="0.8" opacity="0.4"/>
+        <line x1="45" y1="36" x2="52" y2="47" stroke="#C9A45C" stroke-width="0.8" opacity="0.4"/>
+        <line x1="75" y1="36" x2="68" y2="47" stroke="#C9A45C" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div class="splash__content">
+      <div class="splash__logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 60 44" fill="none" xmlns="http://www.w3.org/2000/svg" width="54" height="40">
+          <polygon points="30,2 58,42 2,42" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
+          <ellipse cx="30" cy="28" rx="8" ry="5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
+          <circle cx="30" cy="28" r="2.5" fill="#C9A45C"/>
+        </svg>
+      </div>
+      <div class="splash__brand">
+        <span class="splash__name" id="splashName" aria-label="Shadow Rooftop"></span>
+        <span class="splash__sub">ROOFTOP</span>
+      </div>
+      <div class="splash__divider" aria-hidden="true"></div>
+      <p class="splash__tagline">Dining Above History</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MAIN APP
+  ============================================================ -->
+  <div id="app" class="app" aria-hidden="true">
+
+    <!-- ── HEADER ───────────────────────────────────────────── -->
+    <header class="header" role="banner">
+      <div class="header__inner container">
+
+        <!-- Logo -->
+        <a href="#hero" class="header__logo" aria-label="Shadow Rooftop — Home">
+          <span class="header__logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="26">
+              <polygon points="25,2 48,34 2,34" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
+              <ellipse cx="25" cy="23" rx="7" ry="4.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
+              <circle cx="25" cy="23" r="2.2" fill="#C9A45C"/>
+            </svg>
+          </span>
+          <span class="header__logo-text">
+            <span class="header__logo-name">SHADOW</span>
+            <span class="header__logo-sub">ROOFTOP</span>
+          </span>
+        </a>
+
+        <!-- Right controls -->
+        <div class="header__controls">
+          <!-- Language toggle -->
+          <div class="lang-toggle" role="group" aria-label="Language selection">
+            <button class="lang-toggle__btn lang-toggle__btn--active" id="langEn" aria-pressed="true" aria-label="Switch to English">EN</button>
+            <span class="lang-toggle__sep" aria-hidden="true">|</span>
+            <button class="lang-toggle__btn" id="langAr" aria-pressed="false" aria-label="Switch to Arabic" title="Arabic version coming soon">AR</button>
+          </div>
+          <!-- Hamburger -->
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="sideNav">
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+            <span class="hamburger__line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── SIDE NAV OVERLAY ──────────────────────────────────── -->
+    <nav id="sideNav" class="side-nav" aria-label="Site navigation" aria-hidden="true">
+      <div class="side-nav__backdrop" id="navBackdrop" aria-hidden="true"></div>
+      <div class="side-nav__panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <button class="side-nav__close" id="navClose" aria-label="Close menu">&times;</button>
+        <div class="side-nav__logo" aria-hidden="true">
+          <svg viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="29">
+            <polygon points="25,2 48,34 2,34" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
+            <ellipse cx="25" cy="23" rx="7" ry="4.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
+            <circle cx="25" cy="23" r="2.2" fill="#C9A45C"/>
+          </svg>
+          <span>SHADOW ROOFTOP</span>
+        </div>
+        <ul class="side-nav__list">
+          <li><a href="#hero" class="side-nav__link" data-close-nav>Home</a></li>
+          <li><a href="#menu" class="side-nav__link" data-close-nav>Menu</a></li>
+          <li><a href="#footer" class="side-nav__link" data-close-nav>Location</a></li>
+          <li><a href="#footer" class="side-nav__link" data-close-nav>Contact</a></li>
+        </ul>
+        <div class="side-nav__note">Giza, Cairo, Egypt</div>
+      </div>
+    </nav>
+
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section id="hero" class="hero" aria-label="Hero section">
+      <!-- Hero image: Pyramids at sunrise/sunset -->
+      <div class="hero__media" aria-hidden="true">
+        <div class="hero__image-wrap">
+          <img
+            src="assets/images/hero-rooftop-breakfast.jpg"
+            alt="Panoramic view of the Pyramids of Giza at golden hour from Shadow Rooftop"
+            class="hero__img"
+            loading="eager"
+            onerror="this.style.display='none'"
+          />
+          <!-- CSS gradient fallback shows if image missing -->
+        </div>
+        <div class="hero__overlay" aria-hidden="true"></div>
+      </div>
+
+      <!-- Hero text -->
+      <div class="hero__content container">
+        <div class="hero__text">
+          <p class="hero__eyebrow">DINING ABOVE HISTORY</p>
+          <h1 class="hero__title">Breakfast</h1>
+          <p class="hero__desc">
+            Start your day with refined flavors and an unforgettable view of the timeless Pyramids of Giza.
+          </p>
+          <a href="#menu" class="hero__cta" aria-label="Explore the breakfast menu">
+            EXPLORE MENU
+            <span class="hero__cta-arrow" aria-hidden="true">
+              <svg viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="10">
+                <path d="M1 5h17M14 1l5 4-5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MENU ─────────────────────────────────────────────── -->
+    <main id="menu" class="menu" role="main" aria-label="Restaurant menu">
+
+      <!-- Category Navigation -->
+      <div class="categories" role="navigation" aria-label="Menu categories">
+        <div class="categories__track" id="categoriesTrack" role="tablist">
+          <button
+            class="cat-btn cat-btn--active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="section-breakfast"
+            data-category="breakfast"
+            id="tab-breakfast"
+          >Breakfast</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-starters"
+            data-category="starters"
+            id="tab-starters"
+          >Starters</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-main"
+            data-category="main"
+            id="tab-main"
+          >Main Course</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-desserts"
+            data-category="desserts"
+            id="tab-desserts"
+          >Desserts</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-drinks"
+            data-category="drinks"
+            id="tab-drinks"
+          >Drinks</button>
+        </div>
+      </div>
+
+      <!-- Menu Content Area -->
+      <div class="menu__sections container">
+
+        <!-- BREAKFAST SECTION -->
+        <section
+          id="section-breakfast"
+          class="menu-section menu-section--active"
+          role="tabpanel"
+          aria-labelledby="tab-breakfast"
+        >
+          <div class="menu-items" id="breakfast-items" aria-label="Breakfast items">
+            <!-- Dynamically rendered by JS -->
+          </div>
+        </section>
+
+        <!-- STARTERS SECTION (placeholder) -->
+        <section
+          id="section-starters"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-starters"
+          hidden
+        >
+          <div class="coming-soon">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Starters — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- MAIN COURSE SECTION (placeholder) -->
+        <section
+          id="section-main"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-main"
+          hidden
+        >
+          <div class="coming-soon">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Main Course — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- DESSERTS SECTION (placeholder) -->
+        <section
+          id="section-desserts"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-desserts"
+          hidden
+        >
+          <div class="coming-soon">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Desserts — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- DRINKS SECTION (placeholder) -->
+        <section
+          id="section-drinks"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-drinks"
+          hidden
+        >
+          <div class="coming-soon">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Drinks — Coming Soon</p>
+          </div>
+        </section>
+
+      </div><!-- /.menu__sections -->
+    </main>
+
+    <!-- ── FOOTER ────────────────────────────────────────────── -->
+    <footer id="footer" class="footer" role="contentinfo">
+      <div class="footer__inner container">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <span class="footer__logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="20">
+              <polygon points="25,2 48,34 2,34" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
+              <ellipse cx="25" cy="23" rx="7" ry="4.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
+              <circle cx="25" cy="23" r="2.2" fill="#C9A45C"/>
+            </svg>
+          </span>
+          <div>
+            <p class="footer__name">SHADOW ROOFTOP</p>
+            <p class="footer__vat">VAT &amp; service charge may apply.<br/>Please inform our team of any food allergies or dietary requirements.</p>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="footer__links">
+          <!-- Location -->
+          <a
+            href="https://maps.google.com/?q=Shadow+Rooftop+Giza+Cairo+Egypt"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer__link"
+            aria-label="Open Shadow Rooftop location in Google Maps"
+          >
+            <span class="footer__link-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#C9A45C" stroke-width="1.4" fill="none"/>
+                <circle cx="12" cy="9" r="2.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
+              </svg>
+            </span>
+            <span>Giza, Cairo<br/><small>Open in Google Maps →</small></span>
+          </a>
+
+          <!-- Social -->
+          <div class="footer__social" aria-label="Social media links">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-btn"
+              aria-label="Follow Shadow Rooftop on Instagram"
+            >
+              <!-- Instagram SVG -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9A45C" stroke-width="1.4"/>
+                <circle cx="12" cy="12" r="4.5" stroke="#C9A45C" stroke-width="1.4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="#C9A45C"/>
+              </svg>
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-btn"
+              aria-label="Follow Shadow Rooftop on Facebook"
+            >
+              <!-- Facebook SVG -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#C9A45C" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2024 Shadow Rooftop. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </div><!-- /#app -->
+
+  <script src="js/script.js"></script>
+</body>
+</html>
