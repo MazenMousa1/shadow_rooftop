@@ -20,12 +20,16 @@ HOW TO CHANGE THE WEBSITE FONT:
 → Controls menu prices and EGP price typography.
 */
 :root {
-  --font-primary: 'Manrope', sans-serif;
+  --font-primary: 'Spectral', Georgia, serif;
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-brand: 'Cormorant Garamond', Georgia, serif;
-  --font-price: 'Cinzel', serif;
+  --font-price: 'Libre Baskerville', Georgia, serif;
 }
-
+:root {
+  --color-gold: #C9A45C;
+  --color-gold-light: #E2C98A;
+  --color-gold-dark: #9B783D;
+}
 
 /* ================================================================
    SHADOW ROOFTOP — Premium QR Menu
@@ -674,7 +678,7 @@ ul, ol {
   font-size: clamp(2.5rem, 9vw, 3.5rem);
   font-weight: 600;
   line-height: 1.05;
-  color: rgba(255, 225, 57, 0.911);
+  color: #fbd77c;
   margin-bottom: var(--gap-md);
   letter-spacing: -0.01em;
 }
@@ -772,20 +776,22 @@ ul, ol {
 .cat-btn {
   flex-shrink: 0;
   font-family: var(--font-primary);
-  font-size: 0.8125rem;
-  font-weight: 400;
-  padding: 7px 18px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.055em;
+  padding: 8px 18px;
   border-radius: 100px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(201, 164, 92, 0.14);
   color: var(--text-secondary);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.018);
   transition:
     color        var(--dur-normal) var(--ease-smooth),
     background   var(--dur-normal) var(--ease-smooth),
-    border-color var(--dur-normal) var(--ease-smooth);
+    border-color var(--dur-normal) var(--ease-smooth),
+    transform    var(--dur-fast)   var(--ease-smooth);
   white-space: nowrap;
   cursor: pointer;
-  min-height: 36px;
+  min-height: 38px;
   display: flex;
   align-items: center;
 }
@@ -794,6 +800,7 @@ ul, ol {
   color: var(--text-primary);
   border-color: var(--gold-border);
   background: rgba(201, 164, 92, 0.05);
+  transform: translateY(-1px);
 }
 
 .cat-btn:focus-visible {
@@ -805,7 +812,9 @@ ul, ol {
   background: var(--gold);
   color: var(--bg-primary);
   font-weight: 600;
+  letter-spacing: 0.06em;
   border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(201, 164, 92, 0.14);
 }
 
 /* ================================================================
@@ -925,37 +934,37 @@ ul, ol {
 
 .food-card__price {
   display: flex;
-  align-items: center;
-  gap: 3px;
+  align-items: baseline;
+  gap: 4px;
   flex-shrink: 0;
   white-space: nowrap;
 }
 
 .food-card__price-currency {
   font-family: var(--font-primary);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   color: var(--gold-muted);
   line-height: 1;
-  margin-top: 2px;
+  text-transform: uppercase;
 }
 
 .food-card__price-amount {
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-family: var(--font-price);
+  font-size: 1.0625rem;
+  font-weight: 400;
   color: var(--gold);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1;
+  letter-spacing: 0;
 }
 
 /* Description */
 .food-card__desc {
   font-family: var(--font-primary);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.58;
   color: var(--text-secondary);
 }
 
@@ -973,8 +982,8 @@ ul, ol {
   gap: 4px;
   font-family: var(--font-primary);
   font-size: 0.625rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
+  font-weight: 500;
+  letter-spacing: 0.045em;
   color: var(--text-muted);
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.06);

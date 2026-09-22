@@ -10,8 +10,8 @@
   <!-- Preconnect for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Cormorant Garamond: elegant serif for headings | Manrope: clean, geometric sans for body | Cinzel: elegant serif for prices -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Cormorant Garamond: luxury headings | Spectral: refined body/UI | Libre Baskerville: elegant price numbers -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Libre+Baskerville:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -126,7 +126,7 @@
       <div class="hero__media" aria-hidden="true">
         <div class="hero__image-wrap">
           <img
-            src="assets/images/hero-rooftop-breakfast.jpg"
+            src="assets/images/shadow.jpeg"
             alt="Panoramic view of the Pyramids of Giza at golden hour from Shadow Rooftop"
             class="hero__img"
             loading="eager"
@@ -175,34 +175,74 @@
             class="cat-btn"
             role="tab"
             aria-selected="false"
-            aria-controls="section-starters"
-            data-category="starters"
-            id="tab-starters"
-          >Starters</button>
+            aria-controls="section-soup"
+            data-category="soup"
+            id="tab-soup"
+          >Soup</button>
           <button
             class="cat-btn"
             role="tab"
             aria-selected="false"
-            aria-controls="section-main"
-            data-category="main"
-            id="tab-main"
-          >Main Course</button>
+            aria-controls="section-appetizers"
+            data-category="appetizers"
+            id="tab-appetizers"
+          >Appetizers</button>
           <button
             class="cat-btn"
             role="tab"
             aria-selected="false"
-            aria-controls="section-desserts"
-            data-category="desserts"
-            id="tab-desserts"
-          >Desserts</button>
+            aria-controls="section-salad"
+            data-category="salad"
+            id="tab-salad"
+          >Salad</button>
           <button
             class="cat-btn"
             role="tab"
             aria-selected="false"
-            aria-controls="section-drinks"
-            data-category="drinks"
-            id="tab-drinks"
-          >Drinks</button>
+            aria-controls="section-chicken-main"
+            data-category="chicken-main"
+            id="tab-chicken-main"
+          >Chicken Main Course</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-beef-main"
+            data-category="beef-main"
+            id="tab-beef-main"
+          >Beef Main Course</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-pasta"
+            data-category="pasta"
+            id="tab-pasta"
+          >Pasta</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-pizza"
+            data-category="pizza"
+            id="tab-pizza"
+          >Pizza</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-sandwich"
+            data-category="sandwich"
+            id="tab-sandwich"
+          >Sandwich</button>
+          <button
+            class="cat-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="section-food-extras"
+            data-category="food-extras"
+            id="tab-food-extras"
+          >Food Extras</button>
         </div>
       </div>
 
@@ -221,79 +261,183 @@
           </div>
         </section>
 
-        <!-- STARTERS SECTION (placeholder) -->
+        <!-- SOUP SECTION (placeholder) -->
         <section
-          id="section-starters"
+          id="section-soup"
           class="menu-section"
           role="tabpanel"
-          aria-labelledby="tab-starters"
+          aria-labelledby="tab-soup"
           hidden
         >
-          <div class="coming-soon">
+          <div class="menu-items" id="soup-items" aria-label="Soup items"></div>
+          <div class="coming-soon" data-empty-category="soup">
             <span class="coming-soon__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
                 <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
                 <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
               </svg>
             </span>
-            <p class="coming-soon__text">Starters — Coming Soon</p>
+            <p class="coming-soon__text">Soup — Coming Soon</p>
           </div>
         </section>
 
-        <!-- MAIN COURSE SECTION (placeholder) -->
+        <!-- APPETIZERS SECTION (placeholder) -->
         <section
-          id="section-main"
+          id="section-appetizers"
           class="menu-section"
           role="tabpanel"
-          aria-labelledby="tab-main"
+          aria-labelledby="tab-appetizers"
           hidden
         >
-          <div class="coming-soon">
+          <div class="menu-items" id="appetizers-items" aria-label="Appetizers items"></div>
+          <div class="coming-soon" data-empty-category="appetizers">
             <span class="coming-soon__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
                 <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
                 <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
               </svg>
             </span>
-            <p class="coming-soon__text">Main Course — Coming Soon</p>
+            <p class="coming-soon__text">Appetizers — Coming Soon</p>
           </div>
         </section>
 
-        <!-- DESSERTS SECTION (placeholder) -->
+        <!-- SALAD SECTION (placeholder) -->
         <section
-          id="section-desserts"
+          id="section-salad"
           class="menu-section"
           role="tabpanel"
-          aria-labelledby="tab-desserts"
+          aria-labelledby="tab-salad"
           hidden
         >
-          <div class="coming-soon">
+          <div class="menu-items" id="salad-items" aria-label="Salad items"></div>
+          <div class="coming-soon" data-empty-category="salad">
             <span class="coming-soon__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
                 <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
                 <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
               </svg>
             </span>
-            <p class="coming-soon__text">Desserts — Coming Soon</p>
+            <p class="coming-soon__text">Salad — Coming Soon</p>
           </div>
         </section>
 
-        <!-- DRINKS SECTION (placeholder) -->
+        <!-- CHICKEN MAIN COURSE SECTION (placeholder) -->
         <section
-          id="section-drinks"
+          id="section-chicken-main"
           class="menu-section"
           role="tabpanel"
-          aria-labelledby="tab-drinks"
+          aria-labelledby="tab-chicken-main"
           hidden
         >
-          <div class="coming-soon">
+          <div class="menu-items" id="chicken-main-items" aria-label="Chicken main course items"></div>
+          <div class="coming-soon" data-empty-category="chicken-main">
             <span class="coming-soon__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
                 <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
                 <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
               </svg>
             </span>
-            <p class="coming-soon__text">Drinks — Coming Soon</p>
+            <p class="coming-soon__text">Chicken Main Course — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- BEEF MAIN COURSE SECTION (placeholder) -->
+        <section
+          id="section-beef-main"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-beef-main"
+          hidden
+        >
+          <div class="menu-items" id="beef-main-items" aria-label="Beef main course items"></div>
+          <div class="coming-soon" data-empty-category="beef-main">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Beef Main Course — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- PASTA SECTION (placeholder) -->
+        <section
+          id="section-pasta"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-pasta"
+          hidden
+        >
+          <div class="menu-items" id="pasta-items" aria-label="Pasta items"></div>
+          <div class="coming-soon" data-empty-category="pasta">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Pasta — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- PIZZA SECTION (placeholder) -->
+        <section
+          id="section-pizza"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-pizza"
+          hidden
+        >
+          <div class="menu-items" id="pizza-items" aria-label="Pizza items"></div>
+          <div class="coming-soon" data-empty-category="pizza">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Pizza — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- SANDWICH SECTION (placeholder) -->
+        <section
+          id="section-sandwich"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-sandwich"
+          hidden
+        >
+          <div class="menu-items" id="sandwich-items" aria-label="Sandwich items"></div>
+          <div class="coming-soon" data-empty-category="sandwich">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Sandwich — Coming Soon</p>
+          </div>
+        </section>
+
+        <!-- FOOD EXTRAS SECTION (placeholder) -->
+        <section
+          id="section-food-extras"
+          class="menu-section"
+          role="tabpanel"
+          aria-labelledby="tab-food-extras"
+          hidden
+        >
+          <div class="menu-items" id="food-extras-items" aria-label="Food extras items"></div>
+          <div class="coming-soon" data-empty-category="food-extras">
+            <span class="coming-soon__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                <circle cx="12" cy="12" r="10" stroke="#C9A45C" stroke-width="1.2"/>
+                <path d="M12 8v4l3 3" stroke="#C9A45C" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="coming-soon__text">Food Extras — Coming Soon</p>
           </div>
         </section>
 

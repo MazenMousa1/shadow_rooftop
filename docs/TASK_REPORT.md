@@ -5,6 +5,41 @@
 
 ---
 
+## Task #005 — Category System Setup + Luxury Typography Selection
+
+### 1. Task Objective
+Prepare the expanded menu category navigation for future menu items, then apply the selected luxury typography direction: Option 3 for category buttons and small copy, with Option 2's price number style.
+
+### 2. What I Changed
+- Rebuilt the category tabs so every category has its own unique `id`, `data-category`, and matching section.
+- Added placeholder sections for Soup, Appetizers, Salad, Chicken Main Course, Beef Main Course, Pasta, Pizza, Sandwich, and Food Extras.
+- Updated `MENU_DATA` so each new category has a ready empty array for future items.
+- Updated rendering so every category is initialized automatically.
+- Changed primary UI/body typography from Manrope to Spectral.
+- Changed price number typography from Cinzel/Cormorant usage to Libre Baskerville.
+- Refined category button sizing, weight, spacing, border, and active state for a more premium feel.
+
+### 3. Files Created
+- `docs/typography-preview.html` — A temporary visual comparison page for testing typography options.
+
+### 4. Files Modified
+- `index.html`
+- `css/style.css`
+- `js/script.js`
+- `README.md`
+- `docs/TASK_REPORT.md`
+
+### 5. Testing Performed
+- Checked that all category buttons point to unique sections.
+- Checked that no duplicate HTML IDs remain.
+- Ran JavaScript syntax validation on `js/script.js`.
+
+### 6. Remaining Issues
+- New categories are prepared but still empty until the real menu items are provided.
+- Final visual approval should be done in the browser before pushing to GitHub.
+
+---
+
 ## Task #004 — Upgrade Website Typography to Luxury Fine-Dining Font Pairing
 
 ### 1. Task Objective

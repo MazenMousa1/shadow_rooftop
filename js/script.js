@@ -81,10 +81,15 @@ const MENU_DATA = {
     },
   ],
 
-  starters:  [], // Placeholder — add items when ready
-  main:      [], // Placeholder — add items when ready
-  desserts:  [], // Placeholder — add items when ready
-  drinks:    [], // Placeholder — add items when ready
+  soup:          [], // Placeholder — add items when ready
+  appetizers:   [], // Placeholder — add items when ready
+  salad:         [], // Placeholder — add items when ready
+  'chicken-main': [], // Placeholder — add items when ready
+  'beef-main':    [], // Placeholder — add items when ready
+  pasta:         [], // Placeholder — add items when ready
+  pizza:         [], // Placeholder — add items when ready
+  sandwich:      [], // Placeholder — add items when ready
+  'food-extras': [], // Placeholder — add items when ready
 };
 
 /* ================================================================
@@ -184,12 +189,19 @@ const PLACEHOLDER_ICON = `
  */
 function renderCategory(categoryKey) {
   const items = MENU_DATA[categoryKey];
-  if (!items || items.length === 0) return;
-
   const container = $(`#${categoryKey}-items`);
   if (!container) return;
 
+  const emptyState = $(`[data-empty-category="${categoryKey}"]`);
+
+  if (!items || items.length === 0) {
+    container.innerHTML = '';
+    if (emptyState) emptyState.hidden = false;
+    return;
+  }
+
   container.innerHTML = items.map(buildCardHTML).join('');
+  if (emptyState) emptyState.hidden = true;
 }
 
 /* ================================================================
@@ -480,8 +492,7 @@ function initSplash() {
    ================================================================ */
 function init() {
   // 1. Render menu data
-  renderCategory('breakfast');
-  // Future: renderCategory('starters'), etc.
+  Object.keys(MENU_DATA).forEach(renderCategory);
 
   // 2. Init splash (first, so it runs timing logic immediately)
   initSplash();

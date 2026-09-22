@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shadow Rooftop Typography Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Libre+Baskerville:wght@400;700&family=Marcellus&family=Playfair+Display:wght@500;600;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #070A0F;
+      --bg-secondary: #0D1118;
+      --bg-card: #10141C;
+      --gold: #C9A45C;
+      --gold-light: #E2C98A;
+      --gold-muted: rgba(201, 164, 92, 0.65);
+      --gold-border: rgba(201, 164, 92, 0.22);
+      --text-primary: #F5F2EA;
+      --text-secondary: #A9A7A1;
+      --text-muted: #6B6963;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at top right, rgba(201, 164, 92, 0.08), transparent 34rem),
+        var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Jost', sans-serif;
+      padding: 28px 18px 48px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .intro {
+      margin-bottom: 28px;
+    }
+
+    .intro__eyebrow {
+      color: var(--gold-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 8vw, 4.6rem);
+      line-height: 0.95;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .intro__text {
+      max-width: 680px;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    .option {
+      --ui-font: 'Jost', sans-serif;
+      --copy-font: 'Jost', sans-serif;
+      --price-font: 'Marcellus', serif;
+      background: rgba(16, 20, 28, 0.86);
+      border: 1px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+    }
+
+    .option--one {
+      --ui-font: 'Alegreya Sans', sans-serif;
+      --copy-font: 'Alegreya Sans', sans-serif;
+      --price-font: 'Marcellus', serif;
+    }
+
+    .option--two {
+      --ui-font: 'Jost', sans-serif;
+      --copy-font: 'Jost', sans-serif;
+      --price-font: 'Libre Baskerville', Georgia, serif;
+    }
+
+    .option--three {
+      --ui-font: 'Spectral', Georgia, serif;
+      --copy-font: 'Spectral', Georgia, serif;
+      --price-font: 'Playfair Display', Georgia, serif;
+    }
+
+    .option--four {
+      --ui-font: 'Cormorant Garamond', Georgia, serif;
+      --copy-font: 'Alegreya Sans', sans-serif;
+      --price-font: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .option__name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .option__meta {
+      font-family: var(--ui-font);
+      color: var(--gold-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .cat {
+      flex: 0 0 auto;
+      font-family: var(--ui-font);
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      color: var(--text-secondary);
+      border: 1px solid rgba(201, 164, 92, 0.16);
+      border-radius: 999px;
+      padding: 8px 15px;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .cat--active {
+      color: var(--bg-primary);
+      background: var(--gold);
+      border-color: var(--gold);
+      font-weight: 600;
+    }
+
+    .sample-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .sample-card__image {
+      min-height: 116px;
+      background:
+        linear-gradient(135deg, rgba(201, 164, 92, 0.16), transparent),
+        linear-gradient(145deg, #242129, #11151c);
+    }
+
+    .sample-card__body {
+      padding: 12px 12px 12px 0;
+    }
+
+    .sample-card__top {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .dish {
+      font-family: var(--font-heading);
+      font-size: 1.14rem;
+      line-height: 1.18;
+      font-weight: 600;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .price__currency {
+      font-family: var(--ui-font);
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--gold-muted);
+    }
+
+    .price__amount {
+      font-family: var(--price-font);
+      font-size: 1.18rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .desc {
+      font-family: var(--copy-font);
+      font-size: 0.79rem;
+      line-height: 1.62;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 9px;
+    }
+
+    .tag {
+      display: inline-flex;
+      font-family: var(--ui-font);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 999px;
+      padding: 3px 7px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding-inline: 12px;
+      }
+
+      .options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <p class="intro__eyebrow">Shadow Rooftop typography test</p>
+      <h1>Choose The Feel</h1>
+      <p class="intro__text">
+        Compare category buttons, small menu copy, tags, and price numbers using the same dark luxury visual direction.
+      </p>
+    </section>
+
+    <section class="options" aria-label="Typography options">
+      <article class="option option--one">
+        <h2 class="option__name">Option 1</h2>
+        <p class="option__meta">Alegreya Sans + Marcellus</p>
+        <div class="tabs">
+          <span class="cat cat--active">Breakfast</span>
+          <span class="cat">Soup</span>
+          <span class="cat">Pasta</span>
+        </div>
+        <div class="sample-card">
+          <div class="sample-card__image"></div>
+          <div class="sample-card__body">
+            <div class="sample-card__top">
+              <h3 class="dish">Club Sandwich</h3>
+              <p class="price"><span class="price__currency">EGP</span><span class="price__amount">510</span></p>
+            </div>
+            <p class="desc">Layered sandwich with chicken, smoked turkey and fresh vegetables.</p>
+            <span class="tag">Contains Gluten</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="option option--two">
+        <h2 class="option__name">Option 2</h2>
+        <p class="option__meta">Jost + Libre Baskerville</p>
+        <div class="tabs">
+          <span class="cat cat--active">Breakfast</span>
+          <span class="cat">Soup</span>
+          <span class="cat">Pasta</span>
+        </div>
+        <div class="sample-card">
+          <div class="sample-card__image"></div>
+          <div class="sample-card__body">
+            <div class="sample-card__top">
+              <h3 class="dish">Club Sandwich</h3>
+              <p class="price"><span class="price__currency">EGP</span><span class="price__amount">510</span></p>
+            </div>
+            <p class="desc">Layered sandwich with chicken, smoked turkey and fresh vegetables.</p>
+            <span class="tag">Contains Gluten</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="option option--three">
+        <h2 class="option__name">Option 3</h2>
+        <p class="option__meta">Spectral + Playfair Display</p>
+        <div class="tabs">
+          <span class="cat cat--active">Breakfast</span>
+          <span class="cat">Soup</span>
+          <span class="cat">Pasta</span>
+        </div>
+        <div class="sample-card">
+          <div class="sample-card__image"></div>
+          <div class="sample-card__body">
+            <div class="sample-card__top">
+              <h3 class="dish">Club Sandwich</h3>
+              <p class="price"><span class="price__currency">EGP</span><span class="price__amount">510</span></p>
+            </div>
+            <p class="desc">Layered sandwich with chicken, smoked turkey and fresh vegetables.</p>
+            <span class="tag">Contains Gluten</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="option option--four">
+        <h2 class="option__name">Option 4</h2>
+        <p class="option__meta">Cormorant UI + Alegreya Sans</p>
+        <div class="tabs">
+          <span class="cat cat--active">Breakfast</span>
+          <span class="cat">Soup</span>
+          <span class="cat">Pasta</span>
+        </div>
+        <div class="sample-card">
+          <div class="sample-card__image"></div>
+          <div class="sample-card__body">
+            <div class="sample-card__top">
+              <h3 class="dish">Club Sandwich</h3>
+              <p class="price"><span class="price__currency">EGP</span><span class="price__amount">510</span></p>
+            </div>
+            <p class="desc">Layered sandwich with chicken, smoked turkey and fresh vegetables.</p>
+            <span class="tag">Contains Gluten</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

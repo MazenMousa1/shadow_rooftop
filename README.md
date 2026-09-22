@@ -61,7 +61,8 @@ To easily change the typography across the entire website without searching thro
 3. Change `--font-primary` to update most website text (descriptions, buttons, body).
 4. Change `--font-heading` to update headings and dish names.
 5. Change `--font-brand` to update the main logo text.
-6. Save and refresh the website.
+6. Change `--font-price` to update menu price numbers.
+7. Save and refresh the website.
 
 ---
 
@@ -107,7 +108,7 @@ The site is structured for bilingual support:
 ## Technical Notes
 
 - No frameworks, no build step — open `index.html` directly in any browser
-- Fonts loaded from Google Fonts CDN (Cormorant Garamond + Inter)
+- Fonts loaded from Google Fonts CDN (Cormorant Garamond + Spectral + Libre Baskerville)
 - Food images lazy-loaded for performance
 - Graceful fallback if images are missing (placeholder shown)
 - `prefers-reduced-motion` respected throughout
