@@ -681,6 +681,7 @@ ul, ol {
   color: #fbd77c;
   margin-bottom: var(--gap-md);
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .hero__desc {
@@ -821,7 +822,7 @@ ul, ol {
    MENU SECTIONS
    ================================================================ */
 .menu__sections {
-  padding-block: var(--gap-lg) var(--gap-2xl);
+  padding-block: var(--gap-lg) var(--gap-xl);
 }
 
 .menu-section--active {
@@ -1009,6 +1010,48 @@ ul, ol {
   background: rgba(138, 176, 200, 0.06);
 }
 
+/* Breakfast comparison: two compact cards per row on phones. */
+@media (max-width: 599px) {
+  #breakfast-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #breakfast-items .food-card {
+    min-width: 0;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #breakfast-items .food-card__img-wrap {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  #breakfast-items .food-card__body {
+    padding: 10px;
+    gap: 7px;
+  }
+
+  #breakfast-items .food-card__header {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #breakfast-items .food-card__name {
+    font-size: 1.0625rem;
+    overflow-wrap: anywhere;
+  }
+
+  #breakfast-items .food-card__desc {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* -- COMING SOON ---------------------------------------------- */
 .coming-soon {
   display: flex;
@@ -1030,6 +1073,35 @@ ul, ol {
   font-weight: 400;
   letter-spacing: 0.08em;
   color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.price-disclaimer {
+  padding-bottom: var(--gap-2xl);
+  text-align: center;
+}
+
+.price-disclaimer {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+}
+
+.price-disclaimer__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 164, 92, 0.35), transparent);
+}
+
+.price-disclaimer p {
+  flex-shrink: 0;
+  max-width: min(100%, 360px);
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.075em;
+  color: var(--gold-light);
   text-transform: uppercase;
 }
 

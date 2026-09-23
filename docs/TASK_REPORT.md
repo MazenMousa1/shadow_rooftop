@@ -5,6 +5,34 @@
 
 ---
 
+## Task #006 — Populate Food Menu From Rooftop Excel
+
+### 1. Task Objective
+Import the food menu items, ingredients, and menu prices from `Menu RoofTop.xlsx` into the website, keep the expanded category system working, update the hero title when category tabs change, and add a visible service/VAT note below the menu items.
+
+### 2. What I Changed
+- Populated all prepared food categories in `js/script.js`: Breakfast, Soup, Appetizers, Salad, Chicken Main Course, Beef Main Course, Pasta, Pizza, Sandwich, and Food Extras.
+- Used the menu-facing price column from the workbook and rounded displayed prices to whole EGP values.
+- Added category title switching so the large hero heading changes when a category tab is selected.
+- Added a styled note below the menu sections: `Prices are subject to 12% service & 14% VAT`.
+- Assigned temporary existing project images to the new items so every card has a visual while final item-specific photos are pending.
+
+### 3. Files Modified
+- `index.html`
+- `css/style.css`
+- `js/script.js`
+- `docs/TASK_REPORT.md`
+
+### 4. Testing Performed
+- Verified JavaScript syntax with `node --check js/script.js`.
+- Confirmed all referenced image paths are existing project assets.
+- Opened the local `index.html` in the Codex browser for visual review.
+
+### 5. Remaining Issues
+- Item-specific generated/real photos are still pending; current images are temporary category-matched placeholders.
+
+---
+
 ## Task #005 — Category System Setup + Luxury Typography Selection
 
 ### 1. Task Objective
