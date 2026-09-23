@@ -1010,42 +1010,42 @@ ul, ol {
   background: rgba(138, 176, 200, 0.06);
 }
 
-/* Breakfast comparison: two compact cards per row on phones. */
+/* Two compact cards per row on phones. */
 @media (max-width: 599px) {
-  #breakfast-items {
+  .menu-items {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
-  #breakfast-items .food-card {
+  .menu-items .food-card {
     min-width: 0;
     flex-direction: column;
     gap: 0;
   }
 
-  #breakfast-items .food-card__img-wrap {
+  .menu-items .food-card__img-wrap {
     width: 100%;
     min-height: 0;
     aspect-ratio: 4 / 3;
   }
 
-  #breakfast-items .food-card__body {
+  .menu-items .food-card__body {
     padding: 10px;
     gap: 7px;
   }
 
-  #breakfast-items .food-card__header {
+  .menu-items .food-card__header {
     flex-direction: column;
     gap: 6px;
   }
 
-  #breakfast-items .food-card__name {
+  .menu-items .food-card__name {
     font-size: 1.0625rem;
     overflow-wrap: anywhere;
   }
 
-  #breakfast-items .food-card__desc {
+  .menu-items .food-card__desc {
     font-size: 0.75rem;
     line-height: 1.45;
     overflow-wrap: anywhere;
@@ -1346,6 +1346,84 @@ ul, ol {
 
   .hero__title {
     font-size: 4.5rem;
+  }
+}
+
+/* Arabic typography and right-to-left details. */
+html[lang="ar"] {
+  --font-primary: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+  --font-heading: 'Amiri', Tahoma, serif;
+  --font-price: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+}
+
+html[lang="ar"] :is(.splash__tagline, .hero__eyebrow, .hero__cta, .cat-btn, .cat-btn--active,
+  .side-nav__link, .side-nav__note, .coming-soon__text, .price-disclaimer p,
+  .footer__vat, .footer__link small, .footer__bottom p) {
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .hero__overlay {
+  background:
+    linear-gradient(to left, rgba(7, 10, 15, 0.93) 0%, rgba(7, 10, 15, 0.78) 45%, rgba(7, 10, 15, 0.35) 75%, rgba(7, 10, 15, 0.15) 100%),
+    linear-gradient(to top, rgba(7, 10, 15, 0.9) 0%, rgba(7, 10, 15, 0.1) 50%, transparent 100%);
+}
+
+html[lang="ar"] .hero__title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .hero__cta-arrow svg {
+  transform: rotate(180deg);
+}
+
+html[lang="ar"] :is(.splash__name, .splash__sub, .header__logo-text,
+  .side-nav__logo span, .footer__name, .lang-toggle) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+html[lang="ar"] .side-nav__close {
+  left: var(--gap-md);
+  right: auto;
+}
+
+html[lang="ar"] .food-card__name {
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .food-card__price-currency {
+  letter-spacing: 0;
+  direction: rtl;
+  unicode-bidi: isolate;
+  order: 2;
+}
+
+html[lang="ar"] .food-card__price-amount {
+  font-size: 1.125rem;
+  font-weight: 600;
+  order: 1;
+}
+
+html[lang="ar"] .food-card__price {
+  direction: ltr;
+  justify-content: flex-end;
+}
+
+@media (min-width: 600px) {
+  html[lang="ar"] .hero__title {
+    font-size: 3.25rem;
+  }
+}
+
+@media (min-width: 900px) {
+  html[lang="ar"] .hero__title {
+    font-size: 3.75rem;
   }
 }
 

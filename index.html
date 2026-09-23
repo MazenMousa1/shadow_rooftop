@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Cormorant Garamond: luxury headings | Spectral: refined body/UI | Libre Baskerville: elegant price numbers -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Libre+Baskerville:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Libre+Baskerville:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -20,30 +20,30 @@
   <!-- ============================================================
        SPLASH SCREEN
   ============================================================ -->
-  <div id="splash" class="splash" role="dialog" aria-label="Shadow Rooftop loading screen" aria-modal="true">
+  <div id="splash" class="splash" role="dialog" aria-label="Shadow Rooftop loading screen" data-i18n-aria="splash" aria-modal="true">
     <div class="splash__bg"></div>
 
-    <!-- Subtle pyramid SVG watermark -->
-    <div class="splash__pyramid" aria-hidden="true">
-      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="60,4 116,76 4,76" stroke="#C9A45C" stroke-width="1.5" fill="none" opacity="0.5"/>
-        <polygon points="60,18 102,76 18,76" stroke="#C9A45C" stroke-width="0.8" fill="none" opacity="0.25"/>
-        <!-- Eye of Ra simplified -->
-        <ellipse cx="60" cy="52" rx="10" ry="6" stroke="#C9A45C" stroke-width="1.2" fill="none" opacity="0.6"/>
-        <circle cx="60" cy="52" r="3" fill="#C9A45C" opacity="0.7"/>
-        <!-- Rays -->
-        <line x1="60" y1="24" x2="60" y2="42" stroke="#C9A45C" stroke-width="0.8" opacity="0.4"/>
-        <line x1="45" y1="36" x2="52" y2="47" stroke="#C9A45C" stroke-width="0.8" opacity="0.4"/>
-        <line x1="75" y1="36" x2="68" y2="47" stroke="#C9A45C" stroke-width="0.8" opacity="0.4"/>
-      </svg>
-    </div>
+      <!-- Subtle pyramid SVG watermark -->
+      <div class="splash__pyramid" aria-hidden="true">
+        <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="60,4 4,76 60,76" fill="#C9A45C" opacity="0.012"/>
+          <polygon points="60,4 116,76 60,76" fill="#C9A45C" opacity="0.035"/>
+          <polygon points="60,4 116,76 4,76" stroke="#C9A45C" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <polygon points="60,18 102,76 18,76" stroke="#C9A45C" stroke-width="0.8" fill="none" opacity="0.25"/>
+          <path d="M60 4 60 76" stroke="#C9A45C" stroke-width="1" opacity="0.35"/>
+          <path d="M43 27 58 24M62 24 77 27M33 42 58 37M62 37 87 42M19 58 58 50M62 50 101 58" stroke="#C9A45C" stroke-width="0.8" opacity="0.22"/>
+        </svg>
+      </div>
 
     <div class="splash__content">
       <div class="splash__logo-icon" aria-hidden="true">
         <svg viewBox="0 0 60 44" fill="none" xmlns="http://www.w3.org/2000/svg" width="54" height="40">
+          <polygon points="30,2 2,42 30,42" fill="#C9A45C" opacity="0.035"/>
+          <polygon points="30,2 58,42 30,42" fill="#C9A45C" opacity="0.1"/>
           <polygon points="30,2 58,42 2,42" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
-          <ellipse cx="30" cy="28" rx="8" ry="5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
-          <circle cx="30" cy="28" r="2.5" fill="#C9A45C"/>
+          <polygon points="30,10 46,37 14,37" stroke="#C9A45C" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M21 18 29 16M31 16 39 18M15 26 29 22M31 22 45 26M9 35 29 30M31 30 51 35" stroke="#C9A45C" stroke-width="0.65" opacity="0.34"/>
+          <path d="M30 2 30 42" stroke="#C9A45C" stroke-width="1" opacity="0.65"/>
         </svg>
       </div>
       <div class="splash__brand">
@@ -51,7 +51,7 @@
         <span class="splash__sub">ROOFTOP</span>
       </div>
       <div class="splash__divider" aria-hidden="true"></div>
-      <p class="splash__tagline">Dining Above History</p>
+      <p class="splash__tagline" data-i18n="eyebrow">Dining Above History</p>
     </div>
   </div>
 
@@ -65,12 +65,15 @@
       <div class="header__inner container">
 
         <!-- Logo -->
-        <a href="#hero" class="header__logo" aria-label="Shadow Rooftop — Home">
+        <a href="#hero" class="header__logo" aria-label="Shadow Rooftop — Home" data-i18n-aria="home">
           <span class="header__logo-icon" aria-hidden="true">
             <svg viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="26">
+              <polygon points="25,2 2,34 25,34" fill="#C9A45C" opacity="0.035"/>
+              <polygon points="25,2 48,34 25,34" fill="#C9A45C" opacity="0.1"/>
               <polygon points="25,2 48,34 2,34" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
-              <ellipse cx="25" cy="23" rx="7" ry="4.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
-              <circle cx="25" cy="23" r="2.2" fill="#C9A45C"/>
+              <polygon points="25,9 40,30 10,30" stroke="#C9A45C" stroke-width="0.7" fill="none" opacity="0.4"/>
+              <path d="M18 15 24 13M26 13 32 15M13 22 24 19M26 19 37 22M8 29 24 25M26 25 42 29" stroke="#C9A45C" stroke-width="0.55" opacity="0.34"/>
+              <path d="M25 2 25 34" stroke="#C9A45C" stroke-width="1" opacity="0.65"/>
             </svg>
           </span>
           <span class="header__logo-text">
@@ -82,13 +85,13 @@
         <!-- Right controls -->
         <div class="header__controls">
           <!-- Language toggle -->
-          <div class="lang-toggle" role="group" aria-label="Language selection">
-            <button class="lang-toggle__btn lang-toggle__btn--active" id="langEn" aria-pressed="true" aria-label="Switch to English">EN</button>
+          <div class="lang-toggle" role="group" aria-label="Language selection" data-i18n-aria="language">
+            <button class="lang-toggle__btn lang-toggle__btn--active" id="langEn" aria-pressed="true" aria-label="Switch to English" data-i18n-aria="english">EN</button>
             <span class="lang-toggle__sep" aria-hidden="true">|</span>
-            <button class="lang-toggle__btn" id="langAr" aria-pressed="false" aria-label="Switch to Arabic" title="Arabic version coming soon">AR</button>
+            <button class="lang-toggle__btn" id="langAr" aria-pressed="false" aria-label="Switch to Arabic" data-i18n-aria="arabic">AR</button>
           </div>
           <!-- Hamburger -->
-          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="sideNav">
+          <button class="hamburger" id="hamburger" aria-label="Open menu" data-i18n-aria="openMenu" aria-expanded="false" aria-controls="sideNav">
             <span class="hamburger__line"></span>
             <span class="hamburger__line"></span>
             <span class="hamburger__line"></span>
@@ -98,36 +101,40 @@
     </header>
 
     <!-- ── SIDE NAV OVERLAY ──────────────────────────────────── -->
-    <nav id="sideNav" class="side-nav" aria-label="Site navigation" aria-hidden="true">
+    <nav id="sideNav" class="side-nav" aria-label="Site navigation" data-i18n-aria="siteNav" aria-hidden="true">
       <div class="side-nav__backdrop" id="navBackdrop" aria-hidden="true"></div>
-      <div class="side-nav__panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
-        <button class="side-nav__close" id="navClose" aria-label="Close menu">&times;</button>
+      <div class="side-nav__panel" role="dialog" aria-modal="true" aria-label="Navigation menu" data-i18n-aria="navDialog">
+        <button class="side-nav__close" id="navClose" aria-label="Close menu" data-i18n-aria="closeMenu">&times;</button>
         <div class="side-nav__logo" aria-hidden="true">
           <svg viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="29">
+            <polygon points="25,2 2,34 25,34" fill="#C9A45C" opacity="0.035"/>
+            <polygon points="25,2 48,34 25,34" fill="#C9A45C" opacity="0.1"/>
             <polygon points="25,2 48,34 2,34" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
-            <ellipse cx="25" cy="23" rx="7" ry="4.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
-            <circle cx="25" cy="23" r="2.2" fill="#C9A45C"/>
+            <polygon points="25,9 40,30 10,30" stroke="#C9A45C" stroke-width="0.7" fill="none" opacity="0.4"/>
+            <path d="M18 15 24 13M26 13 32 15M13 22 24 19M26 19 37 22M8 29 24 25M26 25 42 29" stroke="#C9A45C" stroke-width="0.55" opacity="0.34"/>
+            <path d="M25 2 25 34" stroke="#C9A45C" stroke-width="1" opacity="0.65"/>
           </svg>
           <span>SHADOW ROOFTOP</span>
         </div>
         <ul class="side-nav__list">
-          <li><a href="#hero" class="side-nav__link" data-close-nav>Home</a></li>
-          <li><a href="#menu" class="side-nav__link" data-close-nav>Menu</a></li>
-          <li><a href="#footer" class="side-nav__link" data-close-nav>Location</a></li>
-          <li><a href="#footer" class="side-nav__link" data-close-nav>Contact</a></li>
+          <li><a href="#hero" class="side-nav__link" data-close-nav data-i18n="navHome">Home</a></li>
+          <li><a href="#menu" class="side-nav__link" data-close-nav data-i18n="navMenu">Menu</a></li>
+          <li><a href="#footer" class="side-nav__link" data-close-nav data-i18n="navLocation">Location</a></li>
+          <li><a href="#footer" class="side-nav__link" data-close-nav data-i18n="navContact">Contact</a></li>
         </ul>
-        <div class="side-nav__note">Giza, Cairo, Egypt</div>
+        <div class="side-nav__note" data-i18n="navNote">Giza, Cairo, Egypt</div>
       </div>
     </nav>
 
     <!-- ── HERO ─────────────────────────────────────────────── -->
-    <section id="hero" class="hero" aria-label="Hero section">
-      <!-- Hero image: Pyramids at sunrise/sunset -->
+    <section id="hero" class="hero" aria-label="Hero section" data-i18n-aria="hero">
+      <!-- Hero image: Frontal nighttime view of the Pyramids of Giza -->
       <div class="hero__media" aria-hidden="true">
         <div class="hero__image-wrap">
           <img
-            src="assets/images/shadow.jpeg"
-            alt="Panoramic view of the Pyramids of Giza at golden hour from Shadow Rooftop"
+            src="assets/images/hero-pyramids-night-real-scale.png"
+            alt="Frontal nighttime view of the three Pyramids of Giza from Shadow Rooftop"
+            data-i18n-alt="heroImage"
             class="hero__img"
             loading="eager"
             onerror="this.style.display='none'"
@@ -140,13 +147,13 @@
       <!-- Hero text -->
       <div class="hero__content container">
         <div class="hero__text">
-          <p class="hero__eyebrow">DINING ABOVE HISTORY</p>
+          <p class="hero__eyebrow" data-i18n="eyebrow">DINING ABOVE HISTORY</p>
           <h1 class="hero__title">Breakfast</h1>
-          <p class="hero__desc">
+          <p class="hero__desc" data-i18n="heroDesc">
             Start your day with refined flavors and an unforgettable view of the timeless Pyramids of Giza.
           </p>
-          <a href="#menu" class="hero__cta" aria-label="Explore the breakfast menu">
-            EXPLORE MENU
+          <a href="#menu" class="hero__cta" aria-label="Explore the breakfast menu" data-i18n-aria="explore">
+            <span data-i18n="explore">EXPLORE MENU</span>
             <span class="hero__cta-arrow" aria-hidden="true">
               <svg viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="10">
                 <path d="M1 5h17M14 1l5 4-5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -158,10 +165,10 @@
     </section>
 
     <!-- ── MENU ─────────────────────────────────────────────── -->
-    <main id="menu" class="menu" role="main" aria-label="Restaurant menu">
+    <main id="menu" class="menu" role="main" aria-label="Restaurant menu" data-i18n-aria="restaurantMenu">
 
       <!-- Category Navigation -->
-      <div class="categories" role="navigation" aria-label="Menu categories">
+      <div class="categories" role="navigation" aria-label="Menu categories" data-i18n-aria="categories">
         <div class="categories__track" id="categoriesTrack" role="tablist">
           <button
             class="cat-btn cat-btn--active"
@@ -443,9 +450,9 @@
 
       </div><!-- /.menu__sections -->
 
-      <div class="price-disclaimer container" role="note" aria-label="Price service and VAT note">
+      <div class="price-disclaimer container" role="note" aria-label="Price service and VAT note" data-i18n-aria="disclaimer">
         <span class="price-disclaimer__line"></span>
-        <p>Prices are subject to 12% service &amp; 14% VAT</p>
+        <p data-i18n="disclaimer">Prices are subject to 12% service &amp; 14% VAT</p>
         <span class="price-disclaimer__line"></span>
       </div>
     </main>
@@ -458,14 +465,17 @@
         <div class="footer__brand">
           <span class="footer__logo-icon" aria-hidden="true">
             <svg viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="20">
+              <polygon points="25,2 2,34 25,34" fill="#C9A45C" opacity="0.035"/>
+              <polygon points="25,2 48,34 25,34" fill="#C9A45C" opacity="0.1"/>
               <polygon points="25,2 48,34 2,34" stroke="#C9A45C" stroke-width="1.5" fill="none"/>
-              <ellipse cx="25" cy="23" rx="7" ry="4.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
-              <circle cx="25" cy="23" r="2.2" fill="#C9A45C"/>
+              <polygon points="25,9 40,30 10,30" stroke="#C9A45C" stroke-width="0.7" fill="none" opacity="0.4"/>
+              <path d="M18 15 24 13M26 13 32 15M13 22 24 19M26 19 37 22M8 29 24 25M26 25 42 29" stroke="#C9A45C" stroke-width="0.55" opacity="0.34"/>
+              <path d="M25 2 25 34" stroke="#C9A45C" stroke-width="1" opacity="0.65"/>
             </svg>
           </span>
           <div>
             <p class="footer__name">SHADOW ROOFTOP</p>
-            <p class="footer__vat">VAT &amp; service charge may apply.<br/>Please inform our team of any food allergies or dietary requirements.</p>
+            <p class="footer__vat"><span data-i18n="footerVat">VAT &amp; service charge may apply.</span><br/><span data-i18n="footerAllergies">Please inform our team of any food allergies or dietary requirements.</span></p>
           </div>
         </div>
 
@@ -473,11 +483,12 @@
         <div class="footer__links">
           <!-- Location -->
           <a
-            href="https://maps.google.com/?q=Shadow+Rooftop+Giza+Cairo+Egypt"
+            href="https://maps.app.goo.gl/c9Dust7j47FLv8kbA?g_st=ic"
             target="_blank"
             rel="noopener noreferrer"
             class="footer__link"
             aria-label="Open Shadow Rooftop location in Google Maps"
+            data-i18n-aria="maps"
           >
             <span class="footer__link-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -485,17 +496,18 @@
                 <circle cx="12" cy="9" r="2.5" stroke="#C9A45C" stroke-width="1.2" fill="none"/>
               </svg>
             </span>
-            <span>Giza, Cairo<br/><small>Open in Google Maps →</small></span>
+            <span><span data-i18n="location">Giza, Cairo</span><br/><small data-i18n="maps">Open in Google Maps →</small></span>
           </a>
 
           <!-- Social -->
-          <div class="footer__social" aria-label="Social media links">
+          <div class="footer__social" aria-label="Social media links" data-i18n-aria="social">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/shadowpyramidshotel?stkn=ZDRqMW5sMGkzMWFi"
               target="_blank"
               rel="noopener noreferrer"
               class="footer__social-btn"
               aria-label="Follow Shadow Rooftop on Instagram"
+              data-i18n-aria="instagram"
             >
               <!-- Instagram SVG -->
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" aria-hidden="true">
@@ -504,29 +516,19 @@
                 <circle cx="17.5" cy="6.5" r="1" fill="#C9A45C"/>
               </svg>
             </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer__social-btn"
-              aria-label="Follow Shadow Rooftop on Facebook"
-            >
-              <!-- Facebook SVG -->
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20" aria-hidden="true">
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#C9A45C" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
-              </svg>
-            </a>
+            
           </div>
         </div>
 
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2024 Shadow Rooftop. All rights reserved.</p>
+        <p data-i18n="copyright">&copy; 2026 Shadow Rooftop.Developed by Mazen Mousa All rights reserved.</p>
       </div>
     </footer>
 
   </div><!-- /#app -->
 
+  <script src="js/translations.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

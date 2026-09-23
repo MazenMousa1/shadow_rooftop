@@ -12,7 +12,8 @@ shadow rooftop/
 ├── css/
 │   └── style.css           — All styles (CSS variables, mobile-first)
 ├── js/
-│   └── script.js           — All JavaScript (menu data + interactions)
+│   ├── script.js           — Menu data + interactions
+│   └── translations.js     — Arabic menu and page copy
 ├── assets/
 │   └── images/
 │       ├── hero-pyramids.jpg       ← Replace with real hero photo
@@ -85,10 +86,7 @@ For best results, use square aspect ratios for the food dishes and high-quality 
 
 ---
 
-The site is structured for bilingual support:
-- Language toggle `EN | AR` is already in the header
-- HTML has `lang` and `dir` attributes ready
-- When Arabic is ready, set `document.documentElement.dir = 'rtl'` and load translated `MENU_DATA`
+The `EN | AR` buttons switch the full menu and page copy between English and Arabic. The selected language is saved locally and restored on the next visit. Edit English dish details in `js/script.js` and their Arabic names and descriptions in `js/translations.js`, using the same item ID.
 
 ---
 

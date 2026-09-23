@@ -9,7 +9,7 @@
  *  - Category tab switching
  *  - Dynamic menu card rendering
  *  - Intersection Observer card entrance animations
- *  - Language toggle (EN active, AR prepared)
+ *  - English and Arabic language switching
  *  - Keyboard accessibility
  *  - prefers-reduced-motion support
  */
@@ -111,7 +111,7 @@ const MENU_DATA = {
   sandwich: [
     { id: 'shish-tawook-sandwich', name: 'Shish Tawook Sandwich', description: 'Shish Tawook Sandwich - Fries', price: 250, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'hawawshi', name: 'Hawawshi', description: 'Charcoal-grilled beef hawawshi', price: 150, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
-    { id: 'steak-burger', name: 'Steak Burger', description: 'Burger patty - Beef bacon - Mayonnaise - Mustard - Ketchup - Tomato - Cheddar - Lettuce - Onion - Fries - Bun', price: 260, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
+    { id: 'steak-burger', name: 'Steak Burger', description: 'Burger patty - Beef bacon - Mayonnaise - Mustard - Ketchup - Tomato - Cheddar - Lettuce - Onion - Fries - Bun', price: 261, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'classic-burger', name: 'Classic Burger', description: 'Burger - Mayonnaise - Mustard - Ketchup - Tomato - Cheddar - Lettuce - Onion - Fries - Bread', price: 314, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'cordon-bleu-sandwich', name: 'Cordon Bleu Sandwich', description: 'Cordon Bleu with mix cheese, mayonnaise, lettuce, sherry tomato, and fries.', price: 392, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'chicken-fajita-sandwich', name: 'Chicken Fajita Sandwich', description: 'Grilled Chicken - Colored Pepper - Onion - Mozzarella - Mayonnaise - Jalapeno - BBQ - Fries', price: 377, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
@@ -130,7 +130,7 @@ const MENU_DATA = {
     { id: 'extra-cold-cuts', name: 'Extra Cold Cuts', description: 'Your choice of food extras', price: 86, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'extra-pasta', name: 'Extra Pasta', description: 'Your choice of food extras', price: 86, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'extra-chicken', name: 'Extra Chicken', description: 'Your choice of food extras', price: 86, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-shrimp', name: 'Extra Shrimp', description: 'Your choice of food extras', price: 134, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
+    { id: 'extra-shrimp', name: 'Extra Shrimp', description: 'Your choice of food extras', price: 135, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'extra-beef', name: 'Extra Beef', description: 'Your choice of food extras', price: 161, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
   ],
 };
@@ -148,6 +148,18 @@ const CATEGORY_LABELS = {
   'food-extras': 'Food Extras',
 };
 
+let currentLanguage = 'en';
+const arabicPriceFormatter = new Intl.NumberFormat('ar-EG-u-nu-arab', {
+  useGrouping: false,
+  maximumFractionDigits: 0,
+});
+
+function categoryLabel(categoryKey) {
+  return currentLanguage === 'ar'
+    ? ARABIC_CATEGORIES[categoryKey]
+    : CATEGORY_LABELS[categoryKey];
+}
+
 /* ================================================================
    UTILITY
    ================================================================ */
@@ -162,13 +174,16 @@ function $$(selector, root = document) {
 }
 
 function formatPrice(price) {
-  return Math.round(Number(price)).toString();
+  const roundedPrice = Math.round(Number(price));
+  return currentLanguage === 'ar'
+    ? arabicPriceFormatter.format(roundedPrice)
+    : roundedPrice.toString();
 }
 
 function updateHeroTitle(categoryKey) {
   const heroTitle = $('.hero__title');
   if (!heroTitle) return;
-  heroTitle.textContent = CATEGORY_LABELS[categoryKey] || 'Menu';
+  heroTitle.textContent = categoryLabel(categoryKey) || (currentLanguage === 'ar' ? 'القائمة' : 'Menu');
 }
 
 /* ================================================================
@@ -197,6 +212,10 @@ const ICONS = {
  * @returns {string} HTML string
  */
 function buildCardHTML(item) {
+  const arabic = currentLanguage === 'ar' ? ARABIC_MENU[item.id] : null;
+  const name = arabic ? arabic[0] : item.name;
+  const description = arabic ? arabic[1] : item.description;
+  const currency = currentLanguage === 'ar' ? ARABIC_UI.currency : 'EGP';
   // Build tags HTML
   const tagsHTML = item.tags.map((tag, i) => {
     const type = item.tagTypes[i] || '';
@@ -207,8 +226,8 @@ function buildCardHTML(item) {
   // Image: real src + fallback placeholder
   const imgHTML = `
     <img
-      src="${item.image}"
-      alt="${item.name}"
+      src="assets/images/menu/${item.id}.webp"
+      alt="${name}"
       class="food-card__img"
       loading="lazy"
       decoding="async"
@@ -220,19 +239,19 @@ function buildCardHTML(item) {
   `;
 
   return `
-    <article class="food-card" aria-label="${item.name}, EGP ${formatPrice(item.price)}">
+    <article class="food-card" aria-label="${name}, ${formatPrice(item.price)} ${currency}">
       <div class="food-card__img-wrap">
         ${imgHTML}
       </div>
       <div class="food-card__body">
         <div class="food-card__header">
-          <h2 class="food-card__name">${item.name}</h2>
+          <h2 class="food-card__name">${name}</h2>
           <div class="food-card__price">
-            <span class="food-card__price-currency">EGP</span>
+            <span class="food-card__price-currency">${currency}</span>
             <span class="food-card__price-amount">${formatPrice(item.price)}</span>
           </div>
         </div>
-        <p class="food-card__desc">${item.description}</p>
+        <p class="food-card__desc">${description}</p>
         ${tagsHTML ? `<div class="food-card__tags" aria-label="Dietary information">${tagsHTML}</div>` : ''}
       </div>
     </article>
@@ -274,9 +293,11 @@ function renderCategory(categoryKey) {
    INTERSECTION OBSERVER — Card entrance animations
    ================================================================ */
 function initCardAnimations() {
+  const activeSection = $('.menu-section--active');
+  if (!activeSection) return;
+
   if (prefersReducedMotion) {
-    // Show all cards immediately
-    $$('.food-card').forEach(card => card.classList.add('card--visible'));
+    $$('.food-card', activeSection).forEach(card => card.classList.add('card--visible'));
     return;
   }
 
@@ -297,9 +318,9 @@ function initCardAnimations() {
     rootMargin: '0px 0px -16px 0px',
   });
 
-  $$('.food-card').forEach((card, i) => {
+  $$('.food-card', activeSection).forEach((card, i) => {
     // Stagger via CSS custom property (transition-delay)
-    card.style.transitionDelay = `${i * 65}ms`;
+    card.style.transitionDelay = `${i * 18}ms`;
     observer.observe(card);
   });
 }
@@ -428,72 +449,73 @@ function initLanguageToggle() {
 
   if (!btnEn || !btnAr) return;
 
-  btnEn.addEventListener('click', () => {
-    // Already active — no-op for now
-    setLanguage('en');
-  });
+  const textElements = $$('[data-i18n]');
+  const ariaElements = $$('[data-i18n-aria]');
+  const altElements = $$('[data-i18n-alt]');
+  const englishText = new Map(textElements.map(el => [el, el.textContent.trim()]));
+  const englishAria = new Map(ariaElements.map(el => [el, el.getAttribute('aria-label')]));
+  const englishAlt = new Map(altElements.map(el => [el, el.getAttribute('alt')]));
+  const englishTitle = document.title;
 
-  btnAr.addEventListener('click', () => {
-    // Arabic not yet implemented — show a polite notice
-    showLanguageToast('Arabic version coming soon. عذراً، النسخة العربية قيد الإعداد.');
-  });
-
-  function setLanguage(lang) {
+  function setLanguage(lang, save = true) {
+    if (save && lang === currentLanguage) return;
     const isEn = lang === 'en';
+    currentLanguage = lang;
     btnEn.classList.toggle('lang-toggle__btn--active', isEn);
     btnAr.classList.toggle('lang-toggle__btn--active', !isEn);
     btnEn.setAttribute('aria-pressed', isEn ? 'true' : 'false');
     btnAr.setAttribute('aria-pressed', isEn ? 'false' : 'true');
     document.documentElement.lang = lang;
     document.documentElement.dir  = isEn ? 'ltr' : 'rtl';
-  }
+    document.title = isEn ? englishTitle : ARABIC_UI.title;
 
-  function showLanguageToast(msg) {
-    // Create simple toast
-    const existing = $('#lang-toast');
-    if (existing) existing.remove();
-
-    const toast = document.createElement('div');
-    toast.id = 'lang-toast';
-    toast.setAttribute('role', 'alert');
-    toast.setAttribute('aria-live', 'polite');
-    toast.style.cssText = `
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #10141C;
-      border: 1px solid rgba(201,164,92,0.3);
-      color: #A9A7A1;
-      font-family: var(--font-primary);
-      font-size: 0.8125rem;
-      padding: 12px 22px;
-      border-radius: 100px;
-      z-index: 9999;
-      white-space: nowrap;
-      max-width: calc(100vw - 40px);
-      white-space: normal;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    `;
-    toast.textContent = msg;
-    document.body.appendChild(toast);
-
-    // Animate in
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        toast.style.opacity = '1';
-      });
+    textElements.forEach(el => {
+      el.textContent = isEn ? englishText.get(el) : ARABIC_UI[el.dataset.i18n];
+    });
+    ariaElements.forEach(el => {
+      el.setAttribute('aria-label', isEn ? englishAria.get(el) : ARABIC_UI.aria[el.dataset.i18nAria]);
+    });
+    altElements.forEach(el => {
+      el.setAttribute('alt', isEn ? englishAlt.get(el) : ARABIC_UI.aria[el.dataset.i18nAlt]);
     });
 
-    // Remove after 3s
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      setTimeout(() => toast.remove(), 400);
-    }, 3000);
+    $$('[data-category]').forEach(tab => {
+      tab.textContent = categoryLabel(tab.dataset.category);
+    });
+    $$('.menu-items').forEach(container => {
+      const label = categoryLabel(container.id.replace(/-items$/, ''));
+      container.setAttribute('aria-label', isEn ? `${label} items` : `أصناف ${label}`);
+    });
+    $$('[data-empty-category]').forEach(emptyState => {
+      $('.coming-soon__text', emptyState).textContent = isEn
+        ? `${categoryLabel(emptyState.dataset.emptyCategory)} — Coming Soon`
+        : `${categoryLabel(emptyState.dataset.emptyCategory)} — ${ARABIC_UI.comingSoon}`;
+    });
+    updateHeroTitle($('[data-category][aria-selected="true"]')?.dataset.category || 'breakfast');
+    Object.keys(MENU_DATA).forEach(renderCategory);
+
+    if ($('#app').classList.contains('app--visible')) {
+      requestAnimationFrame(initCardAnimations);
+    }
+    if (save) {
+      try {
+        localStorage.setItem('shadow-menu-language', lang);
+      } catch (_) {
+        // The menu still works when storage is unavailable.
+      }
+    }
   }
+
+  btnEn.addEventListener('click', () => setLanguage('en'));
+  btnAr.addEventListener('click', () => setLanguage('ar'));
+
+  let savedLanguage = 'en';
+  try {
+    savedLanguage = localStorage.getItem('shadow-menu-language') === 'ar' ? 'ar' : 'en';
+  } catch (_) {
+    // Private browsing may block storage.
+  }
+  setLanguage(savedLanguage, false);
 }
 
 /* ================================================================
@@ -558,22 +580,19 @@ function initSplash() {
    INIT
    ================================================================ */
 function init() {
-  // 1. Render menu data
-  Object.keys(MENU_DATA).forEach(renderCategory);
+  // 1. Set the saved language and render menu data
+  initLanguageToggle();
 
-  // 2. Init splash (first, so it runs timing logic immediately)
+  // 2. Init splash
   initSplash();
 
   // 3. Init interactions
   initCategoryTabs();
   initSideNav();
-  initLanguageToggle();
   initHeroScroll();
 
-  // 4. Init card entrance animations (with slight delay for DOM settle)
-  setTimeout(() => {
-    initCardAnimations();
-  }, prefersReducedMotion ? 0 : 1600);
+  // Start observing cards immediately; the previous delay left cards invisible.
+  requestAnimationFrame(initCardAnimations);
 }
 
 // Run on DOMContentLoaded

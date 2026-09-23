@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>معاينة الخط العربي | Shadow Rooftop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:wght@600&family=El+Messiri:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Libre+Baskerville:wght@400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .preview-shell {
+      width: min(940px, 100%);
+      margin: 0 auto;
+      padding: 34px 20px 64px;
+      font-family: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+    }
+
+    .preview-intro {
+      margin-bottom: 26px;
+    }
+
+    .preview-intro__eyebrow {
+      color: var(--gold);
+      font: 600 0.78rem 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .preview-intro h1 {
+      color: var(--text-primary);
+      font: 700 1.85rem/1.35 'Amiri', Tahoma, serif;
+      margin-bottom: 6px;
+    }
+
+    .preview-intro p:last-child {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .preview-choices {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .preview-choice {
+      min-width: 0;
+      min-height: 72px;
+      padding: 10px 12px;
+      text-align: right;
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: 6px;
+      color: var(--text-secondary);
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    .preview-choice:hover,
+    .preview-choice[aria-pressed="true"] {
+      background: #171b22;
+      border-color: var(--gold);
+    }
+
+    .preview-choice:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 2px;
+    }
+
+    .preview-choice__label,
+    .preview-choice__fonts {
+      display: block;
+      font-family: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      overflow-wrap: anywhere;
+    }
+
+    .preview-choice__label {
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .preview-choice[aria-pressed="true"] .preview-choice__label {
+      color: var(--gold-light);
+    }
+
+    .preview-choice__fonts {
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      line-height: 1.45;
+      margin-top: 4px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .preview-stage {
+      --font-price: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      width: min(390px, 100%);
+      margin: 0 auto;
+      background: var(--bg-primary);
+      border: 1px solid var(--gold-border);
+      box-shadow: 0 24px 72px rgba(0, 0, 0, 0.38);
+      overflow: hidden;
+    }
+
+    .preview-stage .container {
+      max-width: none;
+      padding-inline: 20px;
+    }
+
+    body[data-option="current"] .preview-stage {
+      --font-primary: 'Tajawal', Tahoma, sans-serif;
+      --font-heading: 'Noto Naskh Arabic', Tahoma, serif;
+    }
+
+    body[data-option="amiri"] .preview-stage {
+      --font-primary: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      --font-heading: 'Amiri', Tahoma, serif;
+    }
+
+    body[data-option="messiri"] .preview-stage {
+      --font-primary: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      --font-heading: 'El Messiri', Tahoma, sans-serif;
+    }
+
+    body[data-option="ruqaa"] .preview-stage {
+      --font-primary: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      --font-heading: 'Aref Ruqaa', Tahoma, serif;
+    }
+
+    .preview-menu-header {
+      height: 60px;
+      padding-inline: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gold-border);
+      background: var(--bg-primary);
+    }
+
+    .preview-menu-header__brand {
+      color: var(--text-primary);
+      font: 600 1rem 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0.12em;
+      direction: ltr;
+    }
+
+    .preview-menu-header__lang {
+      color: var(--gold);
+      font: 600 0.7rem 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      direction: ltr;
+    }
+
+    .preview-stage .hero {
+      min-height: 300px;
+    }
+
+    .preview-stage .hero__content {
+      padding-block: 32px;
+    }
+
+    .preview-stage .hero__text {
+      max-width: 100%;
+    }
+
+    html[lang="ar"] .preview-stage .hero__title {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      line-height: 1.35;
+    }
+
+    html[lang="ar"] body[data-option="ruqaa"] .preview-stage .hero__title {
+      font-size: 3.2rem;
+    }
+
+    .preview-stage .hero__desc {
+      max-width: 290px;
+      font-size: 0.8125rem;
+    }
+
+    .preview-stage .hero__cta {
+      pointer-events: none;
+      font-size: 0.6875rem;
+    }
+
+    .preview-stage .categories {
+      position: static;
+    }
+
+    .preview-stage .categories__track {
+      padding-inline: 20px;
+    }
+
+    .preview-stage .cat-btn {
+      font-family: var(--font-primary);
+      font-size: 0.875rem;
+    }
+
+    .preview-stage .menu__sections {
+      padding-block: 24px 40px;
+    }
+
+    .preview-stage .menu-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .preview-stage .food-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      opacity: 1;
+      transform: none;
+    }
+
+    .preview-stage .food-card__img-wrap {
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: 4 / 3;
+    }
+
+    .preview-stage .food-card__body {
+      padding: 10px;
+      gap: 7px;
+    }
+
+    .preview-stage .food-card__header {
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .preview-stage .food-card__name {
+      font-family: var(--font-heading);
+      font-size: 1.0625rem;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    body[data-option="ruqaa"] .preview-stage .food-card__name {
+      font-size: 1.2rem;
+    }
+
+    .preview-stage .food-card__desc {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .preview-stage .food-card__price-amount {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .preview-stage .price-disclaimer {
+      padding-bottom: 40px;
+    }
+
+    .preview-stage .price-disclaimer p {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 680px) {
+      .preview-shell {
+        padding: 24px 0 48px;
+      }
+
+      .preview-intro,
+      .preview-choices {
+        margin-inline: 12px;
+      }
+
+      .preview-choices {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body data-option="amiri">
+  <main class="preview-shell">
+    <div class="preview-intro">
+      <p class="preview-intro__eyebrow">SHADOW ROOFTOP · Arabic typography</p>
+      <h1>اختار شكل الخط العربي</h1>
+      <p>نفس المنيو والألوان والأسعار، والخط وحده هو اللي بيتغير.</p>
+    </div>
+
+    <div class="preview-choices" role="group" aria-label="اختيارات الخط العربي">
+      <button class="preview-choice" type="button" data-select="current" aria-pressed="false">
+        <span class="preview-choice__label">الخط السابق</span>
+        <span class="preview-choice__fonts">Noto Naskh + Tajawal</span>
+      </button>
+      <button class="preview-choice" type="button" data-select="amiri" aria-pressed="true">
+        <span class="preview-choice__label">اختيار ١ · كلاسيكي</span>
+        <span class="preview-choice__fonts">Amiri + IBM Plex</span>
+      </button>
+      <button class="preview-choice" type="button" data-select="messiri" aria-pressed="false">
+        <span class="preview-choice__label">اختيار ٢ · معاصر</span>
+        <span class="preview-choice__fonts">El Messiri + IBM Plex</span>
+      </button>
+      <button class="preview-choice" type="button" data-select="ruqaa" aria-pressed="false">
+        <span class="preview-choice__label">اختيار ٣ · تراثي</span>
+        <span class="preview-choice__fonts">Aref Ruqaa + IBM Plex</span>
+      </button>
+    </div>
+
+    <div class="preview-stage" aria-label="معاينة منيو شادو روف توب">
+      <div class="preview-menu-header">
+        <span class="preview-menu-header__brand">SHADOW ROOFTOP</span>
+        <span class="preview-menu-header__lang">EN | AR</span>
+      </div>
+
+      <section class="hero" aria-label="معاينة العنوان الرئيسي">
+        <div class="hero__media" aria-hidden="true">
+          <div class="hero__image-wrap">
+            <img class="hero__img" src="../assets/images/shadow.jpeg" alt="" />
+          </div>
+          <div class="hero__overlay"></div>
+        </div>
+        <div class="hero__content container">
+          <div class="hero__text">
+            <p class="hero__eyebrow">تجربة طعام فوق التاريخ</p>
+            <h2 class="hero__title">الفطار</h2>
+            <p class="hero__desc">ابدأ يومك بنكهات مميزة وإطلالة لا تُنسى على أهرامات الجيزة العريقة.</p>
+            <span class="hero__cta">استكشف القائمة <span class="hero__cta-arrow" aria-hidden="true">←</span></span>
+          </div>
+        </div>
+      </section>
+
+      <div class="categories" aria-label="معاينة الكاتيجوريز">
+        <div class="categories__track">
+          <span class="cat-btn cat-btn--active">الفطار</span>
+          <span class="cat-btn">الشوربة</span>
+          <span class="cat-btn">أطباق الدجاج الرئيسية</span>
+        </div>
+      </div>
+
+      <div class="menu__sections container">
+        <div class="menu-items">
+          <article class="food-card card--visible">
+            <div class="food-card__img-wrap"><img class="food-card__img" src="../assets/images/omelette.jpg" alt="أومليت" /></div>
+            <div class="food-card__body">
+              <div class="food-card__header">
+                <h3 class="food-card__name">أومليت</h3>
+                <div class="food-card__price"><span class="food-card__price-currency">ج.م</span><span class="food-card__price-amount">٢٣٨</span></div>
+              </div>
+              <p class="food-card__desc">أومليت - مشروم - بصل - فلفل - زبدة - مربى - توست</p>
+            </div>
+          </article>
+
+          <article class="food-card card--visible">
+            <div class="food-card__img-wrap"><img class="food-card__img" src="../assets/images/cheese-lovers-breakfast.jpg" alt="فطار عشاق الجبنة" /></div>
+            <div class="food-card__body">
+              <div class="food-card__header">
+                <h3 class="food-card__name">فطار عشاق الجبنة</h3>
+                <div class="food-card__price"><span class="food-card__price-currency">ج.م</span><span class="food-card__price-amount">٤٠٣</span></div>
+              </div>
+              <p class="food-card__desc">أومليت - شيدر - روكفور - جبنة رومي - هوت دوج - تفاح - عين جمل - زبدة - مربى - توست</p>
+            </div>
+          </article>
+
+          <article class="food-card card--visible">
+            <div class="food-card__img-wrap"><img class="food-card__img" src="../assets/images/fatar-breakfast.jpg" alt="فطار شادو" /></div>
+            <div class="food-card__body">
+              <div class="food-card__header">
+                <h3 class="food-card__name">فطار شادو</h3>
+                <div class="food-card__price"><span class="food-card__price-currency">ج.م</span><span class="food-card__price-amount">٤٠٣</span></div>
+              </div>
+              <p class="food-card__desc">أومليت - فرانكفورتر - تركي مدخن - مشروم - طماطم شيري - بطاطس مهروسة - زبدة - مربى - توست</p>
+            </div>
+          </article>
+
+          <article class="food-card card--visible">
+            <div class="food-card__img-wrap"><img class="food-card__img" src="../assets/images/fatar-breakfast.jpg" alt="فطير مشلتت" /></div>
+            <div class="food-card__body">
+              <div class="food-card__header">
+                <h3 class="food-card__name">فطير مشلتت</h3>
+                <div class="food-card__price"><span class="food-card__price-currency">ج.م</span><span class="food-card__price-amount">٥٣٨</span></div>
+              </div>
+              <p class="food-card__desc">فطير مصري تقليدي يُقدم ساخنًا مع اختيارك من طبقين جانبيين: مورتة، عسل أبيض، عسل أسود، قشطة أو جبنة قديمة.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="price-disclaimer container" role="note">
+        <span class="price-disclaimer__line"></span>
+        <p>تُضاف ١٢٪ خدمة و١٤٪ ضريبة قيمة مضافة إلى الأسعار</p>
+        <span class="price-disclaimer__line"></span>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const choices = [...document.querySelectorAll('[data-select]')];
+    choices.forEach(choice => {
+      choice.addEventListener('click', () => {
+        document.body.dataset.option = choice.dataset.select;
+        choices.forEach(button => {
+          button.setAttribute('aria-pressed', button === choice ? 'true' : 'false');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
