@@ -7,9 +7,10 @@ const vm = require('node:vm');
 const root = path.join(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const source = [
+  fs.readFileSync(path.join(root, 'js', 'beverage-data.js'), 'utf8'),
   fs.readFileSync(path.join(root, 'js', 'translations.js'), 'utf8'),
   fs.readFileSync(path.join(root, 'js', 'script.js'), 'utf8'),
-  'globalThis.menuTest = { MENU_DATA, ARABIC_MENU, ARABIC_UI, ARABIC_CATEGORIES, CATEGORY_LABELS, buildCardHTML };',
+  'globalThis.menuTest = { MENU_DATA, ARABIC_MENU, ARABIC_UI, ARABIC_CATEGORIES, CATEGORY_LABELS, BEVERAGE_CATEGORIES, addBeverageCategories, buildCardHTML };',
 ].join('\n');
 const context = vm.createContext({
   window: { matchMedia: () => ({ matches: true }) },
@@ -25,7 +26,7 @@ test('every menu item and category has Arabic copy', () => {
     const copy = ARABIC_MENU[item.id];
     assert.ok(copy, `Missing Arabic copy for ${item.id}`);
     assert.match(copy[0], /[\u0600-\u06ff]/);
-    assert.match(copy[1], /[\u0600-\u06ff]/);
+    if (copy[1]) assert.match(copy[1], /[\u0600-\u06ff]/);
   }
   for (const key of Object.keys(CATEGORY_LABELS)) {
     assert.match(ARABIC_CATEGORIES[key], /[\u0600-\u06ff]/);
@@ -55,13 +56,74 @@ test('switching card language preserves its price and image', () => {
   assert.match(arabic, /٢٣٨ ج\.م/);
 });
 
-test('every menu item has its own optimized image', () => {
-  const items = Object.values(context.menuTest.MENU_DATA).flat();
+test('every food item has its own optimized image', () => {
+  const items = Object.values(context.menuTest.MENU_DATA).flat().filter(item => item.image !== null);
   for (const item of items) {
     assert.ok(
       fs.existsSync(path.join(root, 'assets', 'images', 'menu', `${item.id}.webp`)),
       `Missing optimized image for ${item.id}`,
     );
+  }
+});
+
+test('beverage categories use the workbook data and reserve image slots without photos', () => {
+  const { MENU_DATA, BEVERAGE_CATEGORIES, buildCardHTML } = context.menuTest;
+  vm.runInContext("currentLanguage = 'en'", context);
+  assert.equal(BEVERAGE_CATEGORIES.length, 11);
+  assert.equal(BEVERAGE_CATEGORIES.reduce((count, category) => count + category.items.length, 0), 126);
+
+  for (const category of BEVERAGE_CATEGORIES) {
+    assert.equal(MENU_DATA[category.key].length, category.items.length);
+    for (const item of MENU_DATA[category.key]) {
+      assert.equal(item.image, null, `${item.id} should not load a photo yet`);
+      assert.ok(item.price > 0, `${item.id} should not display a zero price`);
+    }
+  }
+
+  const tea = buildCardHTML(MENU_DATA['hot-beverages'][0]);
+  assert.match(tea, /Tea/);
+  assert.match(tea, /food-card__img-placeholder/);
+  assert.doesNotMatch(tea, /<img\b/);
+  vm.runInContext("currentLanguage = 'ar'", context);
+  assert.match(buildCardHTML(MENU_DATA['hot-beverages'][0]), /شاي/);
+});
+
+test('beverage categories create matching accessible tabs and sections', () => {
+  const createNode = tag => ({
+    tag,
+    children: [],
+    attributes: {},
+    dataset: {},
+    setAttribute(name, value) { this.attributes[name] = value; },
+    append(child) { this.children.push(child); },
+  });
+  const track = createNode('div');
+  const sections = createNode('div');
+  const page = {
+    readyState: 'loading',
+    addEventListener() {},
+    querySelector(selector) {
+      if (selector === '#categoriesTrack') return track;
+      if (selector === '.menu__sections') return sections;
+      return null;
+    },
+    createElement: createNode,
+  };
+  const liveContext = vm.createContext({
+    window: { matchMedia: () => ({ matches: true }) },
+    document: page,
+  });
+  vm.runInContext(`${source}\naddBeverageCategories();`, liveContext);
+
+  assert.equal(track.children.length, 11);
+  assert.equal(sections.children.length, 11);
+  for (const [index, category] of context.menuTest.BEVERAGE_CATEGORIES.entries()) {
+    const tab = track.children[index];
+    const section = sections.children[index];
+    assert.equal(tab.dataset.category, category.key);
+    assert.equal(tab.attributes['aria-controls'], section.id);
+    assert.equal(section.attributes['aria-labelledby'], tab.id);
+    assert.equal(section.children[0].id, `${category.key}-items`);
   }
 });
 

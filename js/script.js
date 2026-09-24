@@ -148,6 +148,16 @@ const CATEGORY_LABELS = {
   'food-extras': 'Food Extras',
 };
 
+for (const category of BEVERAGE_CATEGORIES) {
+  CATEGORY_LABELS[category.key] = category.label;
+  ARABIC_CATEGORIES[category.key] = category.arabicLabel;
+  MENU_DATA[category.key] = category.items.map(item => {
+    ARABIC_MENU[item.id] = [item.arabicName, item.arabicDescription];
+    const { arabicName, arabicDescription, ...menuItem } = item;
+    return { ...menuItem, tags: [], tagTypes: [] };
+  });
+}
+
 let currentLanguage = 'en';
 const arabicPriceFormatter = new Intl.NumberFormat('ar-EG-u-nu-arab', {
   useGrouping: false,
@@ -186,6 +196,39 @@ function updateHeroTitle(categoryKey) {
   heroTitle.textContent = categoryLabel(categoryKey) || (currentLanguage === 'ar' ? 'القائمة' : 'Menu');
 }
 
+function addBeverageCategories() {
+  const track = $('#categoriesTrack');
+  const sections = $('.menu__sections');
+  if (!track || !sections) return;
+
+  BEVERAGE_CATEGORIES.forEach(category => {
+    const tab = document.createElement('button');
+    tab.className = 'cat-btn';
+    tab.id = `tab-${category.key}`;
+    tab.type = 'button';
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-selected', 'false');
+    tab.setAttribute('aria-controls', `section-${category.key}`);
+    tab.dataset.category = category.key;
+    tab.textContent = category.label;
+    track.append(tab);
+
+    const section = document.createElement('section');
+    section.id = `section-${category.key}`;
+    section.className = 'menu-section';
+    section.setAttribute('role', 'tabpanel');
+    section.setAttribute('aria-labelledby', tab.id);
+    section.hidden = true;
+
+    const items = document.createElement('div');
+    items.className = 'menu-items';
+    items.id = `${category.key}-items`;
+    items.setAttribute('aria-label', `${category.label} items`);
+    section.append(items);
+    sections.append(section);
+  });
+}
+
 /* ================================================================
    ICON HELPERS (inline SVG, keeps no external deps)
    ================================================================ */
@@ -216,6 +259,8 @@ function buildCardHTML(item) {
   const name = arabic ? arabic[0] : item.name;
   const description = arabic ? arabic[1] : item.description;
   const currency = currentLanguage === 'ar' ? ARABIC_UI.currency : 'EGP';
+  const safeName = escapeHTML(name);
+  const safeDescription = escapeHTML(description);
   // Build tags HTML
   const tagsHTML = item.tags.map((tag, i) => {
     const type = item.tagTypes[i] || '';
@@ -224,10 +269,12 @@ function buildCardHTML(item) {
   }).join('');
 
   // Image: real src + fallback placeholder
-  const imgHTML = `
+  const imgHTML = item.image === null
+    ? `<div class="food-card__img-placeholder" aria-hidden="true">${PLACEHOLDER_ICON}</div>`
+    : `
     <img
       src="assets/images/menu/${item.id}.webp"
-      alt="${name}"
+      alt="${safeName}"
       class="food-card__img"
       loading="lazy"
       decoding="async"
@@ -235,27 +282,35 @@ function buildCardHTML(item) {
     />
     <div class="food-card__img-placeholder" style="display:none;" aria-hidden="true">
       ${PLACEHOLDER_ICON}
-    </div>
-  `;
+    </div>`;
+  const descriptionHTML = safeDescription
+    ? `<p class="food-card__desc">${safeDescription}</p>`
+    : '';
 
   return `
-    <article class="food-card" aria-label="${name}, ${formatPrice(item.price)} ${currency}">
+    <article class="food-card" aria-label="${safeName}, ${formatPrice(item.price)} ${currency}">
       <div class="food-card__img-wrap">
         ${imgHTML}
       </div>
       <div class="food-card__body">
         <div class="food-card__header">
-          <h2 class="food-card__name">${name}</h2>
+          <h2 class="food-card__name">${safeName}</h2>
           <div class="food-card__price">
             <span class="food-card__price-currency">${currency}</span>
             <span class="food-card__price-amount">${formatPrice(item.price)}</span>
           </div>
         </div>
-        <p class="food-card__desc">${description}</p>
+        ${descriptionHTML}
         ${tagsHTML ? `<div class="food-card__tags" aria-label="Dietary information">${tagsHTML}</div>` : ''}
       </div>
     </article>
   `;
+}
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[character]);
 }
 
 // Placeholder SVG for when image fails to load
@@ -580,6 +635,8 @@ function initSplash() {
    INIT
    ================================================================ */
 function init() {
+  addBeverageCategories();
+
   // 1. Set the saved language and render menu data
   initLanguageToggle();
 
