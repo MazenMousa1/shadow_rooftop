@@ -668,7 +668,15 @@ function initLanguageToggle() {
     document.title = isEn ? englishTitle : ARABIC_UI.title;
 
     textElements.forEach(el => {
-      el.textContent = isEn ? englishText.get(el) : ARABIC_UI[el.dataset.i18n];
+      const translatedText = isEn ? englishText.get(el) : ARABIC_UI[el.dataset.i18n];
+      if (el.classList.contains('offer-slide__saving')) {
+        const percentage = /[0-9٠-٩]+[%٪]/.exec(translatedText);
+        el.innerHTML = percentage
+          ? `${escapeHTML(translatedText.slice(0, percentage.index))}<span class="offer-slide__saving-value">${escapeHTML(percentage[0])}</span>${escapeHTML(translatedText.slice(percentage.index + percentage[0].length))}`
+          : escapeHTML(translatedText);
+      } else {
+        el.textContent = translatedText;
+      }
     });
     ariaElements.forEach(el => {
       el.setAttribute('aria-label', isEn ? englishAria.get(el) : ARABIC_UI.aria[el.dataset.i18nAria]);

@@ -443,6 +443,7 @@ ul, ol {
 .offer-slide__copy h3 { max-width: 500px; margin-top: 10px; color: #fff; font-family: var(--font-heading); font-size: 2.15rem; font-weight: 500; line-height: 1.1; }
 .offer-slide__details { max-width: 360px; margin-top: 8px; color: rgba(255,255,255,.9); font-size: .9rem; line-height: 1.45; }
 .offer-slide__saving { display: block; margin-top: 14px; color: var(--gold-light); font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; letter-spacing: .12em; }
+.offer-slide__saving-value { font-family: var(--font-price); font-size: 1.05em; font-variant-numeric: lining-nums tabular-nums; letter-spacing: 0; }
 .offer-carousel__controls { display: flex; align-items: center; justify-content: center; gap: 13px; padding-top: 14px; }
 .carousel-control { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--gold-border); color: var(--gold-light); font-size: 1rem; }
 .carousel-control:hover { background: rgba(201,164,92,.12); }
@@ -1323,6 +1324,7 @@ html[lang="ar"] .home-scroll { letter-spacing: 0; }
 .price-disclaimer {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--gap-md);
 }
 
@@ -1335,6 +1337,7 @@ html[lang="ar"] .home-scroll { letter-spacing: 0; }
 .price-disclaimer p {
   flex-shrink: 0;
   max-width: min(100%, 360px);
+  text-align: center;
   font-family: var(--font-primary);
   font-size: 0.75rem;
   font-weight: 500;

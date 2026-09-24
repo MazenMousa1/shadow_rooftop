@@ -244,6 +244,12 @@ test('language buttons update the page and keep the selected category', () => {
   const arButton = makeElement();
   const heroTitle = makeElement();
   const navHome = makeElement({ textContent: 'Home', dataset: { i18n: 'navHome' } });
+  const offerSaving = makeElement({
+    textContent: 'SAVE 15%',
+    dataset: { i18n: 'offerPizzaSaving' },
+    innerHTML: '',
+    classList: { toggle() {}, contains: name => name === 'offer-slide__saving' },
+  });
   const selectedTab = makeElement({ dataset: { category: 'pizza' } });
   const tabs = Object.keys(context.menuTest.MENU_DATA).map(category =>
     makeElement({ dataset: { category } }));
@@ -264,7 +270,7 @@ test('language buttons update the page and keep the selected category', () => {
       return null;
     },
     querySelectorAll(selector) {
-      if (selector === '[data-i18n]') return [navHome];
+      if (selector === '[data-i18n]') return [navHome, offerSaving];
       if (selector === '[data-category]') return tabs;
       if (selector === '.menu-items') return Object.values(containers);
       return [];
@@ -281,6 +287,7 @@ test('language buttons update the page and keep the selected category', () => {
   assert.equal(page.documentElement.lang, 'ar');
   assert.equal(page.documentElement.dir, 'rtl');
   assert.equal(navHome.textContent, 'الرئيسية');
+  assert.match(offerSaving.innerHTML, /وفّر <span class="offer-slide__saving-value">١٥٪<\/span>/);
   assert.equal(heroTitle.textContent, 'البيتزا');
   assert.match(containers.pizza.innerHTML, /بيتزا مارجريتا/);
   assert.match(containers.pizza.innerHTML, />٣٠٥<\/span>/);
@@ -289,6 +296,7 @@ test('language buttons update the page and keep the selected category', () => {
   assert.equal(page.documentElement.lang, 'en');
   assert.equal(page.documentElement.dir, 'ltr');
   assert.equal(navHome.textContent, 'Home');
+  assert.match(offerSaving.innerHTML, /SAVE <span class="offer-slide__saving-value">15%<\/span>/);
   assert.equal(heroTitle.textContent, 'Pizza');
   assert.match(containers.pizza.innerHTML, /Margherita Pizza/);
   assert.match(containers.pizza.innerHTML, />305<\/span>/);
