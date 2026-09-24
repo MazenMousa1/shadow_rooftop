@@ -42,6 +42,17 @@ test('every marked page label has Arabic copy', () => {
   for (const key of [...ariaKeys, ...altKeys]) assert.ok(ARABIC_UI.aria[key], `Missing label: ${key}`);
 });
 
+test('menu view has a labeled home link and no redundant explore button', () => {
+  assert.match(html, /class="menu-switcher__home"[\s\S]*?data-i18n="backToHome"/);
+  assert.doesNotMatch(html, /class="hero__cta"/);
+});
+
+test('offers carousel pauses briefly after user interaction and moments stay separate', () => {
+  assert.doesNotMatch(html, /id="offerToggle"/);
+  assert.ok(html.indexOf('id="offers"') < html.indexOf('id="moments"'));
+  assert.match(source, /resumeAt = Date\.now\(\) \+ 8000/);
+});
+
 test('switching card language preserves its price and image', () => {
   const item = context.menuTest.MENU_DATA.breakfast[0];
   const english = context.menuTest.buildCardHTML(item);

@@ -229,6 +229,156 @@ function addBeverageCategories() {
   });
 }
 
+function initMenuNavigation() {
+  const app = $('#app');
+  const home = $('#home');
+  const menu = $('#menu');
+  const beverageKeys = new Set(BEVERAGE_CATEGORIES.map(category => category.key));
+  const tabs = $$('[data-category]');
+  const switchButtons = $$('[data-menu-type-choice]');
+
+  tabs.forEach(tab => {
+    tab.dataset.menuType = beverageKeys.has(tab.dataset.category) ? 'beverages' : 'food';
+  });
+
+  function showHome() {
+    app.dataset.view = 'home';
+    home.setAttribute('aria-hidden', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'instant' : 'smooth' });
+  }
+
+  function showMenu(type) {
+    const allowedTabs = tabs.filter(tab => tab.dataset.menuType === type);
+    if (!allowedTabs.length) return;
+
+    switchButtons.forEach(button => {
+      const active = button.dataset.menuTypeChoice === type;
+      button.classList.toggle('menu-switcher__btn--active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    tabs.forEach(tab => { tab.hidden = tab.dataset.menuType !== type; });
+    $$('.menu-section').forEach(section => {
+      const key = section.id.replace(/^section-/, '');
+      section.hidden = !allowedTabs.some(tab => tab.dataset.category === key && tab.getAttribute('aria-selected') === 'true');
+    });
+
+    app.dataset.view = 'menu';
+    home.setAttribute('aria-hidden', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    allowedTabs[0].click();
+    allowedTabs[0].focus({ preventScroll: true });
+    requestAnimationFrame(() => {
+      menu.scrollIntoView({ behavior: prefersReducedMotion ? 'instant' : 'smooth', block: 'start' });
+    });
+  }
+
+  $$('[data-open-menu]').forEach(control => {
+    control.addEventListener('click', event => {
+      event.preventDefault();
+      showMenu(control.dataset.openMenu);
+    });
+  });
+
+  $$('[data-go-home]').forEach(control => {
+    control.addEventListener('click', event => {
+      event.preventDefault();
+      showHome();
+    });
+  });
+
+  switchButtons.forEach(button => {
+    button.addEventListener('click', () => showMenu(button.dataset.menuTypeChoice));
+  });
+}
+
+function initOfferCarousel() {
+  const carousel = $('#offerCarousel');
+  const track = $('#offerTrack');
+  if (!carousel || !track) return;
+
+  const slides = $$('.offer-slide', track);
+  const dots = $$('[data-offer-slide]', carousel);
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeIndex = 0;
+  let timer = null;
+  let hovered = false;
+  let resumeTimer = null;
+  let resumeAt = 0;
+
+  function stop() {
+    window.clearInterval(timer);
+    timer = null;
+  }
+
+  function showSlide(index) {
+    activeIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === activeIndex;
+      slide.classList.toggle('offer-slide--active', active);
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      slide.inert = !active;
+    });
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === activeIndex;
+      dot.classList.toggle('offer-dot--active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  }
+
+  function start() {
+    stop();
+    if (reducedMotion || hovered || document.hidden || $('#app').dataset.view !== 'home' || Date.now() < resumeAt) return;
+    timer = window.setInterval(() => showSlide(activeIndex + 1), 6000);
+  }
+
+  function pauseBriefly() {
+    stop();
+    window.clearTimeout(resumeTimer);
+    resumeAt = Date.now() + 8000;
+    resumeTimer = window.setTimeout(() => {
+      resumeAt = 0;
+      start();
+    }, 8000);
+  }
+
+  $('#offerPrevious').addEventListener('click', () => { showSlide(activeIndex - 1); pauseBriefly(); });
+  $('#offerNext').addEventListener('click', () => { showSlide(activeIndex + 1); pauseBriefly(); });
+  dots.forEach(dot => dot.addEventListener('click', () => {
+    showSlide(Number(dot.dataset.offerSlide));
+    pauseBriefly();
+  }));
+  carousel.addEventListener('click', event => {
+    if (!event.target.closest('button')) pauseBriefly();
+  });
+  let pointerStart = null;
+  $('.offer-carousel__viewport', carousel).addEventListener('pointerdown', event => {
+    pointerStart = event.target.closest('button') ? null : event.clientX;
+  });
+  $('.offer-carousel__viewport', carousel).addEventListener('pointerup', event => {
+    if (pointerStart === null) return;
+    const distance = event.clientX - pointerStart;
+    pointerStart = null;
+    if (Math.abs(distance) < 45) return;
+    showSlide(activeIndex + (distance < 0 ? 1 : -1));
+    pauseBriefly();
+  });
+  carousel.addEventListener('mouseenter', () => { hovered = true; stop(); });
+  carousel.addEventListener('mouseleave', () => { hovered = false; start(); });
+  carousel.addEventListener('focusin', pauseBriefly);
+  carousel.addEventListener('focusout', event => {
+    if (carousel.contains(event.relatedTarget)) return;
+    start();
+  });
+  document.addEventListener('visibilitychange', start);
+  new MutationObserver(start).observe($('#app'), { attributes: true, attributeFilter: ['data-view'] });
+
+  showSlide(0);
+  start();
+}
+
 /* ================================================================
    ICON HELPERS (inline SVG, keeps no external deps)
    ================================================================ */
@@ -645,6 +795,8 @@ function init() {
 
   // 3. Init interactions
   initCategoryTabs();
+  initMenuNavigation();
+  initOfferCarousel();
   initSideNav();
   initHeroScroll();
 

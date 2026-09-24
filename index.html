@@ -58,14 +58,14 @@
   <!-- ============================================================
        MAIN APP
   ============================================================ -->
-  <div id="app" class="app" aria-hidden="true">
+  <div id="app" class="app" data-view="home" aria-hidden="true">
 
     <!-- ── HEADER ───────────────────────────────────────────── -->
     <header class="header" role="banner">
       <div class="header__inner container">
 
         <!-- Logo -->
-        <a href="#hero" class="header__logo" aria-label="Shadow Rooftop — Home" data-i18n-aria="home">
+        <a href="#home" class="header__logo" aria-label="Shadow Rooftop — Home" data-i18n-aria="home" data-go-home>
           <span class="header__logo-icon" aria-hidden="true">
             <svg viewBox="0 0 50 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="26">
               <polygon points="25,2 2,34 25,34" fill="#C9A45C" opacity="0.035"/>
@@ -117,14 +117,90 @@
           <span>SHADOW ROOFTOP</span>
         </div>
         <ul class="side-nav__list">
-          <li><a href="#hero" class="side-nav__link" data-close-nav data-i18n="navHome">Home</a></li>
-          <li><a href="#menu" class="side-nav__link" data-close-nav data-i18n="navMenu">Menu</a></li>
+          <li><a href="#home" class="side-nav__link" data-close-nav data-go-home data-i18n="navHome">Home</a></li>
+          <li><a href="#menu" class="side-nav__link" data-close-nav data-open-menu="food" data-i18n="navMenu">Menu</a></li>
           <li><a href="#footer" class="side-nav__link" data-close-nav data-i18n="navLocation">Location</a></li>
           <li><a href="#footer" class="side-nav__link" data-close-nav data-i18n="navContact">Contact</a></li>
         </ul>
         <div class="side-nav__note" data-i18n="navNote">Giza, Cairo, Egypt</div>
       </div>
     </nav>
+
+    <!-- ── HOME ─────────────────────────────────────────────── -->
+    <section id="home" class="home" aria-label="Shadow Rooftop home" data-i18n-aria="homePage">
+      <section class="home-hero" aria-labelledby="homeTitle">
+        <div class="home-hero__media" aria-hidden="true"></div>
+        <div class="home-hero__content container">
+          <p class="home-hero__eyebrow" data-i18n="homeEyebrow">DINING ABOVE THE CITY</p>
+          <h1 id="homeTitle" class="home-hero__title" data-i18n="homeTitle">A Taste Above the Ordinary</h1>
+          <p class="home-hero__desc" data-i18n="homeDesc">Food, drinks, and unforgettable Cairo nights.</p>
+          <div class="home-hero__actions">
+            <button class="home-choice" type="button" data-open-menu="food">
+              <span class="home-choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 3v7m4-7v7M6 3v18M17 3c-2.2 2.3-3 4.1-3 7v3h4V3m-2 10v8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span data-i18n="exploreFood">EXPLORE FOOD</span>
+              <span class="home-choice__arrow" aria-hidden="true">→</span>
+            </button>
+            <button class="home-choice" type="button" data-open-menu="beverages">
+              <span class="home-choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 3h10l-1 7a4 4 0 0 1-8 0L7 3Zm5 11v7m-4 0h8M9 6h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span data-i18n="exploreBeverages">EXPLORE BEVERAGES</span>
+              <span class="home-choice__arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+          <a class="home-scroll" href="#offers" aria-label="Discover offers" data-i18n-aria="discoverOffers"><span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section id="offers" class="home-offers" aria-labelledby="offersTitle">
+        <div class="home-section-heading container">
+          <p class="home-section-heading__eyebrow" data-i18n="offersEyebrow">A LITTLE EXTRA</p>
+          <h2 id="offersTitle" data-i18n="offersTitle">Offers</h2>
+          <p class="home-section-heading__desc" data-i18n="offersDesc">Ask our team about today's offers.</p>
+        </div>
+        <div class="offer-carousel container" id="offerCarousel" aria-roledescription="carousel" data-i18n-aria="offersCarousel">
+          <div class="offer-carousel__viewport">
+            <div class="offer-carousel__track" id="offerTrack" aria-live="off">
+              <article class="offer-slide offer-slide--active" aria-roledescription="slide" aria-label="Slide 1 of 3" data-i18n-aria="slideOne">
+                <img src="assets/images/menu/shadow-breakfast.webp" alt="A dish from the Shadow Rooftop menu" data-i18n-alt="foodHighlightImage" loading="lazy" />
+                <div class="offer-slide__copy"><span data-i18n="offerKicker">AT SHADOW ROOFTOP</span><h3 data-i18n="offerHeadline">A little extra to enjoy</h3><button type="button" class="offer-slide__cta" data-open-menu="food" data-i18n="offerCta">Explore food</button></div>
+              </article>
+              <article class="offer-slide" aria-roledescription="slide" aria-label="Slide 2 of 3" data-i18n-aria="slideTwo" aria-hidden="true" inert>
+                <img src="assets/images/menu/classic-burger.webp" alt="A signature dish from the menu" data-i18n-alt="signatureHighlightImage" loading="lazy" />
+                <div class="offer-slide__copy"><span data-i18n="offerKicker">AT SHADOW ROOFTOP</span><h3 data-i18n="offerHeadlineTwo">Make it a moment</h3><button type="button" class="offer-slide__cta" data-open-menu="food" data-i18n="offerCta">Explore food</button></div>
+              </article>
+              <article class="offer-slide" aria-roledescription="slide" aria-label="Slide 3 of 3" data-i18n-aria="slideThree" aria-hidden="true" inert>
+                <img src="assets/images/shadow.jpeg" alt="The Shadow Rooftop terrace overlooking the pyramids" data-i18n-alt="rooftopHighlightImage" loading="lazy" />
+                <div class="offer-slide__copy"><span data-i18n="offerKicker">AT SHADOW ROOFTOP</span><h3 data-i18n="offerHeadlineThree">Your evening, elevated</h3><button type="button" class="offer-slide__cta" data-open-menu="beverages" data-i18n="offerDrinksCta">Explore beverages</button></div>
+              </article>
+            </div>
+          </div>
+          <div class="offer-carousel__controls">
+            <button class="carousel-control" type="button" id="offerPrevious" aria-label="Previous offer" data-i18n-aria="previousOffer"><span aria-hidden="true">←</span></button>
+            <div class="offer-carousel__dots" role="group" aria-label="Choose an offer" data-i18n-aria="chooseOffer">
+              <button class="offer-dot offer-dot--active" type="button" data-offer-slide="0" aria-label="Go to offer 1" data-i18n-aria="offerSlideOne" aria-current="true"></button>
+              <button class="offer-dot" type="button" data-offer-slide="1" aria-label="Go to offer 2" data-i18n-aria="offerSlideTwo" aria-current="false"></button>
+              <button class="offer-dot" type="button" data-offer-slide="2" aria-label="Go to offer 3" data-i18n-aria="offerSlideThree" aria-current="false"></button>
+            </div>
+            <button class="carousel-control" type="button" id="offerNext" aria-label="Next offer" data-i18n-aria="nextOffer"><span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="moments" class="home-moments" aria-labelledby="momentsTitle">
+        <div class="home-section-heading container">
+          <p class="home-section-heading__eyebrow" data-i18n="momentsEyebrow">THE SHADOW EXPERIENCE</p>
+          <h2 id="momentsTitle" data-i18n="momentsTitle">Moments at Shadow</h2>
+        </div>
+        <div class="home-moments__grid container" aria-label="Moments at Shadow Rooftop" data-i18n-aria="momentsGallery">
+          <figure class="moment-tile"><img src="assets/images/shadow.jpeg" alt="The rooftop terrace and pool" data-i18n-alt="rooftopHighlightImage" loading="lazy" /><figcaption data-i18n="momentRooftop">The rooftop</figcaption></figure>
+          <figure class="moment-tile"><img src="assets/images/hero-pyramids-night-real-scale.png" alt="The Pyramids of Giza at night" data-i18n-alt="viewHighlightImage" loading="lazy" /><figcaption data-i18n="momentView">The view</figcaption></figure>
+          <figure class="moment-tile"><img src="assets/images/menu/shadow-breakfast.webp" alt="A freshly prepared dish" data-i18n-alt="foodHighlightImage" loading="lazy" /><figcaption data-i18n="momentTable">Around the table</figcaption></figure>
+        </div>
+      </section>
+    </section>
 
     <!-- ── HERO ─────────────────────────────────────────────── -->
     <section id="hero" class="hero" aria-label="Hero section" data-i18n-aria="hero">
@@ -152,20 +228,23 @@
           <p class="hero__desc" data-i18n="heroDesc">
             Start your day with refined flavors and an unforgettable view of the timeless Pyramids of Giza.
           </p>
-          <a href="#menu" class="hero__cta" aria-label="Explore the breakfast menu" data-i18n-aria="explore">
-            <span data-i18n="explore">EXPLORE MENU</span>
-            <span class="hero__cta-arrow" aria-hidden="true">
-              <svg viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="10">
-                <path d="M1 5h17M14 1l5 4-5 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </a>
         </div>
       </div>
     </section>
 
     <!-- ── MENU ─────────────────────────────────────────────── -->
     <main id="menu" class="menu" role="main" aria-label="Restaurant menu" data-i18n-aria="restaurantMenu">
+
+      <div class="menu-switcher container" role="navigation" aria-label="Menu type" data-i18n-aria="menuType">
+        <a class="menu-switcher__home" href="#home" data-go-home aria-label="Back to home" data-i18n-aria="backHome">
+          <span class="menu-switcher__home-icon" aria-hidden="true">⌂</span>
+          <span class="menu-switcher__home-label" data-i18n="backToHome">Back to home</span>
+        </a>
+        <div class="menu-switcher__choices" role="group" aria-label="Choose menu" data-i18n-aria="chooseMenu">
+          <button type="button" class="menu-switcher__btn menu-switcher__btn--active" data-menu-type-choice="food" aria-pressed="true" data-i18n="food">Food</button>
+          <button type="button" class="menu-switcher__btn" data-menu-type-choice="beverages" aria-pressed="false" data-i18n="beverages">Beverages</button>
+        </div>
+      </div>
 
       <!-- Category Navigation -->
       <div class="categories" role="navigation" aria-label="Menu categories" data-i18n-aria="categories">
