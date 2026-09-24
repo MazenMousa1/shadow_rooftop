@@ -150,7 +150,10 @@
               <span class="home-choice__arrow" aria-hidden="true">→</span>
             </button>
           </div>
-          <a class="home-scroll" href="#offers" aria-label="Discover offers" data-i18n-aria="discoverOffers"><span aria-hidden="true">↓</span></a>
+          <a class="home-scroll" href="#offers" aria-label="Discover offers" data-i18n-aria="discoverOffers">
+            <span data-i18n="discoverOffersCta">Discover today's offers</span>
+            <span class="home-scroll__arrow" aria-hidden="true">↓</span>
+          </a>
         </div>
       </section>
 
@@ -158,22 +161,46 @@
         <div class="home-section-heading container">
           <p class="home-section-heading__eyebrow" data-i18n="offersEyebrow">A LITTLE EXTRA</p>
           <h2 id="offersTitle" data-i18n="offersTitle">Offers</h2>
-          <p class="home-section-heading__desc" data-i18n="offersDesc">Ask our team about today's offers.</p>
+          <p class="home-section-heading__desc" data-i18n="offersDesc">Curated food and drink offers, made for sharing.</p>
         </div>
         <div class="offer-carousel container" id="offerCarousel" aria-roledescription="carousel" data-i18n-aria="offersCarousel">
           <div class="offer-carousel__viewport">
             <div class="offer-carousel__track" id="offerTrack" aria-live="off">
               <article class="offer-slide offer-slide--active" aria-roledescription="slide" aria-label="Slide 1 of 3" data-i18n-aria="slideOne">
-                <img src="assets/images/menu/shadow-breakfast.webp" alt="A dish from the Shadow Rooftop menu" data-i18n-alt="foodHighlightImage" loading="lazy" />
-                <div class="offer-slide__copy"><span data-i18n="offerKicker">AT SHADOW ROOFTOP</span><h3 data-i18n="offerHeadline">A little extra to enjoy</h3><button type="button" class="offer-slide__cta" data-open-menu="food" data-i18n="offerCta">Explore food</button></div>
+                <picture>
+                  <source media="(max-width: 599px)" srcset="assets/images/offers/pizza-night-mobile.webp" />
+                  <img src="assets/images/offers/pizza-night.webp" alt="Four cheese pizza at Shadow Rooftop" data-i18n-alt="pizzaOfferImage" loading="lazy" />
+                </picture>
+                <div class="offer-slide__copy">
+                  <span data-i18n="offerKicker">SPECIAL OFFER</span>
+                  <h3 data-i18n="offerPizzaTitle">Pizza Night</h3>
+                  <p class="offer-slide__details" data-i18n="offerPizzaDetails">Four Cheese Pizza + 2 Soft Drinks</p>
+                  <strong class="offer-slide__saving" data-i18n="offerPizzaSaving">SAVE 15%</strong>
+                </div>
               </article>
               <article class="offer-slide" aria-roledescription="slide" aria-label="Slide 2 of 3" data-i18n-aria="slideTwo" aria-hidden="true" inert>
-                <img src="assets/images/menu/classic-burger.webp" alt="A signature dish from the menu" data-i18n-alt="signatureHighlightImage" loading="lazy" />
-                <div class="offer-slide__copy"><span data-i18n="offerKicker">AT SHADOW ROOFTOP</span><h3 data-i18n="offerHeadlineTwo">Make it a moment</h3><button type="button" class="offer-slide__cta" data-open-menu="food" data-i18n="offerCta">Explore food</button></div>
+                <picture>
+                  <source media="(max-width: 599px)" srcset="assets/images/offers/rooftop-grill-mobile.webp" />
+                  <img src="assets/images/offers/rooftop-grill.webp" alt="Mixed grill platter at Shadow Rooftop" data-i18n-alt="grillOfferImage" loading="lazy" />
+                </picture>
+                <div class="offer-slide__copy">
+                  <span data-i18n="offerKicker">SPECIAL OFFER</span>
+                  <h3 data-i18n="offerGrillTitle">Rooftop Grill for Two</h3>
+                  <p class="offer-slide__details" data-i18n="offerGrillDetails">Mixed Grill + 2 Soft Drinks</p>
+                  <strong class="offer-slide__saving" data-i18n="offerGrillSaving">SAVE 20%</strong>
+                </div>
               </article>
               <article class="offer-slide" aria-roledescription="slide" aria-label="Slide 3 of 3" data-i18n-aria="slideThree" aria-hidden="true" inert>
-                <img src="assets/images/shadow.jpeg" alt="The Shadow Rooftop terrace overlooking the pyramids" data-i18n-alt="rooftopHighlightImage" loading="lazy" />
-                <div class="offer-slide__copy"><span data-i18n="offerKicker">AT SHADOW ROOFTOP</span><h3 data-i18n="offerHeadlineThree">Your evening, elevated</h3><button type="button" class="offer-slide__cta" data-open-menu="beverages" data-i18n="offerDrinksCta">Explore beverages</button></div>
+                <picture>
+                  <source media="(max-width: 599px)" srcset="assets/images/offers/signature-sips-mobile.webp" />
+                  <img src="assets/images/offers/signature-sips.webp" alt="Three signature drinks at Shadow Rooftop" data-i18n-alt="drinksOfferImage" loading="lazy" />
+                </picture>
+                <div class="offer-slide__copy">
+                  <span data-i18n="offerKicker">SPECIAL OFFER</span>
+                  <h3 data-i18n="offerDrinksTitle">Signature Sips</h3>
+                  <p class="offer-slide__details" data-i18n="offerDrinksDetails">Any 3 Signature Drinks</p>
+                  <strong class="offer-slide__saving" data-i18n="offerDrinksSaving">SAVE 15%</strong>
+                </div>
               </article>
             </div>
           </div>

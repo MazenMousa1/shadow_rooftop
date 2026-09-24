@@ -10,7 +10,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Tea",
         "price": 61.236,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-tea.webp",
         "arabicName": "شاي",
         "arabicDescription": "شاي"
       },
@@ -20,19 +20,9 @@ const BEVERAGE_CATEGORIES = [
         "description": "Green Tea",
         "price": 57.834,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-green-tea.webp",
         "arabicName": "شاي اخضر",
         "arabicDescription": "شاي اخضر"
-      },
-      {
-        "id": "hot-beverages-shadow-green-tea-pot",
-        "name": "Shadow Green Tea Pot",
-        "description": "",
-        "price": 184.46399999999997,
-        "priceSource": "final",
-        "image": null,
-        "arabicName": "براد شاي اخضر شادو",
-        "arabicDescription": ""
       },
       {
         "id": "hot-beverages-salep",
@@ -40,7 +30,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Milk - Salep - Nuts",
         "price": 169.53300000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-salep.webp",
         "arabicName": "سحلب",
         "arabicDescription": "لبن - سحلب - مكسرات"
       },
@@ -50,29 +40,9 @@ const BEVERAGE_CATEGORIES = [
         "description": "Hummus El Sham",
         "price": 169.53300000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-halabessa.webp",
         "arabicName": "حلبسه",
         "arabicDescription": "حمص الشام"
-      },
-      {
-        "id": "hot-beverages-fenugreek",
-        "name": "Fenugreek",
-        "description": "",
-        "price": 39.6,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "حلبه",
-        "arabicDescription": "حلبه"
-      },
-      {
-        "id": "hot-beverages-fenugreek-with-milk",
-        "name": "Fenugreek with Milk",
-        "description": "",
-        "price": 62.7,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "حلبه باللبن",
-        "arabicDescription": "حلبه باللبن"
       },
       {
         "id": "hot-beverages-turkish-coffee-single",
@@ -80,7 +50,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Turkish Coffee (Single)",
         "price": 97.71300000000001,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-turkish-coffee-single.webp",
         "arabicName": "قهوة تركي",
         "arabicDescription": "قهوة تركي"
       },
@@ -90,7 +60,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Turkish Coffee (Double)",
         "price": 118.503,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-turkish-coffee-double.webp",
         "arabicName": "قهوة تركي دوبل",
         "arabicDescription": "قهوة تركي دوبل"
       },
@@ -100,7 +70,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "French Coffee",
         "price": 118.503,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-french-coffee.webp",
         "arabicName": "قهوة فرنساوي",
         "arabicDescription": "قهوة فرنساوي"
       },
@@ -110,7 +80,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Espresso (Single)",
         "price": 97.71300000000001,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-espresso-single.webp",
         "arabicName": "اسبرسو",
         "arabicDescription": "اسبرسو"
       },
@@ -120,7 +90,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Espresso (Double)",
         "price": 135.513,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-espresso-double.webp",
         "arabicName": "اسبرسو دوبل",
         "arabicDescription": "اسبرسو دوبل"
       },
@@ -130,7 +100,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Macchiato (Single)",
         "price": 118.503,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-macchiato-single.webp",
         "arabicName": "ميكاتو",
         "arabicDescription": "ميكاتو"
       },
@@ -140,7 +110,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Macchiato (Double)",
         "price": 152.523,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-macchiato-double.webp",
         "arabicName": "ميكاتو دوبل",
         "arabicDescription": "ميكاتو دوبل"
       },
@@ -150,7 +120,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Latte",
         "price": 169.53300000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-latte.webp",
         "arabicName": "لاتيه",
         "arabicDescription": "اسبرسو - لبن"
       },
@@ -160,7 +130,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Cappuccino",
         "price": 152.523,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-cappuccino.webp",
         "arabicName": "كابتشينو",
         "arabicDescription": "اسبرسو - لبن"
       },
@@ -170,7 +140,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Flat White",
         "price": 169.53300000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-flat-white.webp",
         "arabicName": "فلات وايت",
         "arabicDescription": "اسبرسو - لبن"
       },
@@ -180,7 +150,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mochaccino",
         "price": 169.53300000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-mochaccino.webp",
         "arabicName": "موكاتشينو",
         "arabicDescription": "اسبرسو - لبن"
       },
@@ -190,7 +160,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "American Coffee",
         "price": 130.41,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-american-coffee.webp",
         "arabicName": "امريكان كوفي",
         "arabicDescription": "اسبرسو"
       },
@@ -200,7 +170,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Nescafe",
         "price": 130.41,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-nescafe.webp",
         "arabicName": "نسكافيه",
         "arabicDescription": "نسكافيه"
       },
@@ -210,7 +180,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Hot Chocolate",
         "price": 130.41,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-hot-chocolate.webp",
         "arabicName": "هوت شوكليت",
         "arabicDescription": "شوكليت - لبن"
       },
@@ -220,7 +190,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Hot Chocolate Flavors",
         "price": 146.664,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-hot-chocolate-flavors.webp",
         "arabicName": "هوت شوكليت نكهات",
         "arabicDescription": "شوكليت - لبن - نكهتك المفضلة"
       },
@@ -230,7 +200,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Orange – Cinnamon – Anise",
         "price": 130.41,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-anti-flu.webp",
         "arabicName": "انتي - فلو",
         "arabicDescription": "عصير برتقال - قرفة - ينسون"
       },
@@ -240,29 +210,9 @@ const BEVERAGE_CATEGORIES = [
         "description": "Apple Juice – Cinnamon – Clove",
         "price": 130.41,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/hot-beverages-hot-cider.webp",
         "arabicName": "هوت سيدر",
         "arabicDescription": "عصير تفاح - قرفة - قرنفل"
-      },
-      {
-        "id": "hot-beverages-hot-platter",
-        "name": "Hot Platter",
-        "description": "Chocolate - Peanut Butter - Caramel - Milk",
-        "price": 69,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "هوت بلاتر",
-        "arabicDescription": "شوكليت - زبدة الفول السوداني - كراميل - لبن"
-      },
-      {
-        "id": "hot-beverages-hot-peanuts",
-        "name": "Hot Peanuts",
-        "description": "Peanut Butter - Milk",
-        "price": 77.6,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "هوت بيانتس",
-        "arabicDescription": "زبدة الفول السوداني - لبن"
       }
     ]
   },
@@ -277,7 +227,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 87.156,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-coca-cola.webp",
         "arabicName": "كوكاكولا",
         "arabicDescription": ""
       },
@@ -287,7 +237,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 87.156,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-coca-cola-zero.webp",
         "arabicName": "كوكاكولا زيرو",
         "arabicDescription": ""
       },
@@ -297,7 +247,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 87.156,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-sprite.webp",
         "arabicName": "اسبرايت",
         "arabicDescription": ""
       },
@@ -307,7 +257,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 87.156,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-fanta.webp",
         "arabicName": "فانتا",
         "arabicDescription": ""
       },
@@ -317,7 +267,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 87.156,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-schweppes.webp",
         "arabicName": "شويبس",
         "arabicDescription": ""
       },
@@ -327,7 +277,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 41.796,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-small-water.webp",
         "arabicName": "مياه صغيرة",
         "arabicDescription": ""
       },
@@ -337,7 +287,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Puvana Water Glass Bottle (500 Ml)",
         "price": 151.2,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-medium-water-500-ml.webp",
         "arabicName": "مياه كبيرة",
         "arabicDescription": ""
       },
@@ -347,7 +297,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Puvana Water Glass Bottle (1 L)",
         "price": 187.10999999999999,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soft-drinks-large-water-1-l.webp",
         "arabicName": "مياه كبيرة",
         "arabicDescription": ""
       }
@@ -364,7 +314,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 151.902,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-banana-milk.webp",
         "arabicName": "موز باللبن",
         "arabicDescription": "عصير فريش"
       },
@@ -374,7 +324,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 135.0675,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-guava.webp",
         "arabicName": "جوافة",
         "arabicDescription": "عصير فريش"
       },
@@ -384,7 +334,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 140.94,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-guava-mint.webp",
         "arabicName": "جوافة بالنعناع",
         "arabicDescription": "عصير فريش"
       },
@@ -394,7 +344,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 151.902,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-kiwi.webp",
         "arabicName": "كيوي",
         "arabicDescription": "عصير فريش"
       },
@@ -404,7 +354,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 135.0675,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-lemon.webp",
         "arabicName": "ليمون",
         "arabicDescription": "عصير فريش"
       },
@@ -414,7 +364,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 147.987,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-lemon-milk.webp",
         "arabicName": "ليمون باللبن",
         "arabicDescription": "عصير فريش"
       },
@@ -424,7 +374,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 140.94,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-lemon-mint.webp",
         "arabicName": "ليمون بالنعناع",
         "arabicDescription": "عصير فريش"
       },
@@ -434,7 +384,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 151.902,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-mango.webp",
         "arabicName": "مانجو",
         "arabicDescription": "عصير فريش"
       },
@@ -444,7 +394,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 147.987,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-orange.webp",
         "arabicName": "برتقال",
         "arabicDescription": "عصير فريش"
       },
@@ -454,7 +404,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fresh  Juice",
         "price": 151.902,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/fresh-juice-strawberry.webp",
         "arabicName": "فراولة",
         "arabicDescription": "عصير فريش"
       }
@@ -471,7 +421,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango – Coconut – Vanilla Ice Cream",
         "price": 200.25224999999998,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-crazy-mango.webp",
         "arabicName": "كريزي مانجو",
         "arabicDescription": "مانجو - جوز هند - ايس كريم فانيليا"
       },
@@ -481,7 +431,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango – Strawberry – Guava",
         "price": 182.43900000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-florida.webp",
         "arabicName": "فلوريدا",
         "arabicDescription": "مانجو - فراولة - جوافة"
       },
@@ -491,7 +441,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango – Kiwi – Vanilla – Milk",
         "price": 182.43900000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-happy-cocktail.webp",
         "arabicName": "هابي كوكتيل",
         "arabicDescription": "مانجو - كيوي - فانيليا - لبن"
       },
@@ -501,7 +451,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango – Peach – Banana – Pineapple",
         "price": 182.43900000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-hawaii.webp",
         "arabicName": "هااواي",
         "arabicDescription": "مانجو - خوخ - موز - اناناس"
       },
@@ -511,7 +461,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Kiwi – Apple – Lemon – Peach",
         "price": 182.43900000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-kiwi-apple-mint.webp",
         "arabicName": "كيوي ابل منت",
         "arabicDescription": "كيوي - تفاح - ليمون - خوخ"
       },
@@ -521,7 +471,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Lemon – Pineapple – Orange",
         "price": 200.25224999999998,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-lemobana.webp",
         "arabicName": "ليموبانا",
         "arabicDescription": "ليمون - اناناس - برتقال"
       },
@@ -531,7 +481,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango – Vanilla Ice Cream – Cinnamon – Vanilla",
         "price": 200.25224999999998,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-mangobana.webp",
         "arabicName": "مانجوبانا",
         "arabicDescription": "مانجو - ايس كريم فانيليا - قرفة - فانيليا"
       },
@@ -541,7 +491,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango – Banana – Peach – Pineapple – Mint",
         "price": 182.43900000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-mangomint.webp",
         "arabicName": "مانجو مينت",
         "arabicDescription": "مانجو - موز - خوخ - اناناس - نعناع"
       },
@@ -551,19 +501,9 @@ const BEVERAGE_CATEGORIES = [
         "description": "Pineapple – Coconut – Lemon",
         "price": 182.43900000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/cocktails-pina-colada.webp",
         "arabicName": "بيناكولادا",
         "arabicDescription": "اناناس - جوز هند - ليمون"
-      },
-      {
-        "id": "cocktails-shadow-cocktail",
-        "name": "Shadow Cocktail",
-        "description": "Mango - Strawberry - Milk - Banana - Vanilla Ice Cream",
-        "price": 118.7,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "شادو",
-        "arabicDescription": "مانجو - فراولة - لبن - موز - ايس كريم فانيليا"
       }
     ]
   },
@@ -578,7 +518,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Guava – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-guava-smoothie.webp",
         "arabicName": "جوافة",
         "arabicDescription": "جوافة - ثلج"
       },
@@ -588,7 +528,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Lemon – Mint – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-lemon-mint-smoothie.webp",
         "arabicName": "ليمون بالنعناع",
         "arabicDescription": "ليمون نعناع - ثلج"
       },
@@ -598,7 +538,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Lemon – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-lemon-smoothie.webp",
         "arabicName": "ليمون",
         "arabicDescription": "ليمون - ثلج"
       },
@@ -608,7 +548,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Pineapple – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-pineapple-smoothie.webp",
         "arabicName": "اناناس",
         "arabicDescription": "اناناس - ثلج"
       },
@@ -618,7 +558,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Blueberry – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-blueberry-smoothie.webp",
         "arabicName": "بلوبيري",
         "arabicDescription": "بلوبيري - ثلج"
       },
@@ -628,7 +568,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Kiwi – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-kiwi-smoothie.webp",
         "arabicName": "كيوي",
         "arabicDescription": "كيوي -ثلج"
       },
@@ -638,7 +578,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-mango-smoothie.webp",
         "arabicName": "مانجو",
         "arabicDescription": "مانجو - ثلج"
       },
@@ -648,7 +588,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mixed Berries – Ice",
         "price": 207.15749999999997,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-mixed-berries-smoothie.webp",
         "arabicName": "ميكس بيري",
         "arabicDescription": "ميكس بيري - ثلج"
       },
@@ -658,7 +598,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Raspberry – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-raspberry-smoothie.webp",
         "arabicName": "راسبيري",
         "arabicDescription": "راسبيري - ثلج"
       },
@@ -668,7 +608,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Strawberry – Ice",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-strawberry-smoothie.webp",
         "arabicName": "فراولة",
         "arabicDescription": "فراولة - ثلج"
       },
@@ -678,7 +618,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Banana – Strawberry – Coconut – Ice",
         "price": 199.66499999999996,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-banana-dragon-smoothie.webp",
         "arabicName": "بانانا دراجون",
         "arabicDescription": "موز - فراولة - جوزهند - ثلج"
       },
@@ -688,19 +628,9 @@ const BEVERAGE_CATEGORIES = [
         "description": "Guava – Strawberry – Mango – Ice",
         "price": 199.66499999999996,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/granita-mixed-fruits-smoothie.webp",
         "arabicName": "ميكس فروتس",
         "arabicDescription": "جوافة - فراولة - مانجو - ثلج"
-      },
-      {
-        "id": "granita-shadow-granita",
-        "name": "Shadow Granita",
-        "description": "Cola - Canned Cola - Cherry - Ice",
-        "price": 111.4,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "شادو",
-        "arabicDescription": "كولا - كانز كولا - كريز - ثلج"
       }
     ]
   },
@@ -715,7 +645,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mojito Flavor – Lemon – Mint – 7Up",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-virgin-mojito.webp",
         "arabicName": "موخيتو",
         "arabicDescription": "موخيتو فليفر - ليمون - نعناع - سفن اب"
       },
@@ -725,7 +655,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mint Flavor – Lemon – Mint – 7Up",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-scotch-mint-soda.webp",
         "arabicName": "اسكوتش منت",
         "arabicDescription": "فتراك نعناع - ليمون - نعناع - سفن اب"
       },
@@ -735,7 +665,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Garden – Lemon – 7Up",
         "price": 188.73000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-sun-shine-soda.webp",
         "arabicName": "صن شاين",
         "arabicDescription": "فتراك رمان - ليمون - سفن اب"
       },
@@ -745,7 +675,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Espresso – Red Bull",
         "price": 217.08,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-american-soda.webp",
         "arabicName": "امريكان صودا",
         "arabicDescription": "اسبرسو - ريد بول"
       },
@@ -755,7 +685,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Cherry – Orange – 7Up",
         "price": 217.08,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-orange-soda.webp",
         "arabicName": "اورانج",
         "arabicDescription": "كريز فليفر - عصير برتقال - سفن اب"
       },
@@ -765,7 +695,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Apple – Mint – Sprite – 7Up",
         "price": 217.08,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-apple-breeze-soda.webp",
         "arabicName": "ابل بريز",
         "arabicDescription": "تفاح - فتراك نعناع - سفن اب"
       },
@@ -775,7 +705,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Blue Curacao – Orange – 7Up",
         "price": 238.3425,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-blue-orange-soda.webp",
         "arabicName": "بلو اورانج",
         "arabicDescription": "بلوكرواسوا - برتقال - سفن اب"
       },
@@ -785,7 +715,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Grape – Kiwi – Kiwi Flavor – 7Up",
         "price": 238.3425,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-grape-kiwi-soda.webp",
         "arabicName": "جريب كيوي",
         "arabicDescription": "عنب احمر - كيوي - كيوي فلفر - سفن اب"
       },
@@ -795,7 +725,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Birell",
         "price": 201.4875,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-birell.webp",
         "arabicName": "بريل",
         "arabicDescription": "بريل"
       },
@@ -805,7 +735,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Red Bull",
         "price": 217.88999999999996,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-red-bull.webp",
         "arabicName": "ريدبول",
         "arabicDescription": ""
       },
@@ -815,7 +745,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Pineapple – Orange – Red Bull",
         "price": 279.045,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-94-red-bull-fusion-soda.webp",
         "arabicName": "ريدبول فيوجن",
         "arabicDescription": "اناناس - برتقال - ريدبول"
       },
@@ -825,7 +755,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Lemon - Mint - Redbull",
         "price": 279.045,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-redbull-mojito.webp",
         "arabicName": "ريدبول موخيتو",
         "arabicDescription": "ليمون - نعناع - ريد بول"
       },
@@ -835,7 +765,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Strawberry -  Redbull",
         "price": 279.045,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-redbull-strawberry-soda.webp",
         "arabicName": "ريدبول فراولة",
         "arabicDescription": "فراولة - ريدبول"
       },
@@ -845,7 +775,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Cherry - Redbull",
         "price": 279.045,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-redbull-cherry.webp",
         "arabicName": "ريدبول شيري",
         "arabicDescription": "كريز فليفر - ريدبول"
       },
@@ -855,7 +785,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Puvana Light Sparkling Water ( 240M )",
         "price": 157.95,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-small-sparkling-water.webp",
         "arabicName": "مياه فوارة صغيره",
         "arabicDescription": "مياه فوارة"
       },
@@ -865,7 +795,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Puvana Medium Sparkling Water ( 500M )",
         "price": 213.83999999999997,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-large-sparkling-water.webp",
         "arabicName": "مياه فوارة كبيره",
         "arabicDescription": "مياه فوارة"
       },
@@ -875,7 +805,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Pineapple - Blue Curacao - 7Up",
         "price": 279.045,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/soda-shadow-soda.webp",
         "arabicName": "شادو",
         "arabicDescription": "عصير اناناس - بلوكرواسوا - سفن اب"
       }
@@ -892,7 +822,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Avocado - Mango",
         "price": 195.0075,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/healthy-avomango.webp",
         "arabicName": "افومانجو",
         "arabicDescription": "افوكادو - مانجو"
       },
@@ -902,7 +832,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Avocado - Banana - Kiwi - Milk",
         "price": 195.0075,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/healthy-nuclear-hulk.webp",
         "arabicName": "نيوكلير هالك",
         "arabicDescription": "افوكادو - موز - كيوي - لبن"
       },
@@ -912,7 +842,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Orange - Carrots",
         "price": 195.0075,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/healthy-orange-carrots.webp",
         "arabicName": "اورانج كاروتس",
         "arabicDescription": "عصير برتقال - جزر"
       },
@@ -922,7 +852,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Strwaberry - Rocca",
         "price": 195.0075,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/healthy-strawberry-rocca.webp",
         "arabicName": "استروبري روكا",
         "arabicDescription": "فراولة - ورق جرجير"
       },
@@ -932,7 +862,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Rocca - Avocado - Banana - Vanilla Ice Cream - Milk",
         "price": 228.42,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/healthy-power-cocktail.webp",
         "arabicName": "باور كوكتيل",
         "arabicDescription": "جرجير - افوكادو - موز - ايس كريم فانيليا - لبن"
       },
@@ -942,7 +872,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Carrots - Kiwi - Orange - Honey",
         "price": 228.42,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/healthy-tropicana.webp",
         "arabicName": "تروبيكانا",
         "arabicDescription": "جزر - كيوي - برتقال - عسل ابيض"
       },
@@ -952,7 +882,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Avocado - Kiwi - Rocca - Banana - Honey",
         "price": 242.59499999999997,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/healthy-shadow-healthy.webp",
         "arabicName": "شادو",
         "arabicDescription": "افوكادو - كيوي - جرجير - موز - عسل ابيض"
       }
@@ -969,7 +899,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Mango - Vanilla Ice Cream",
         "price": 228.42,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shakes-mango-milk-shake.webp",
         "arabicName": "ميلك تشيك مانجو",
         "arabicDescription": "ايس كريم فانيليا - مانجو"
       },
@@ -979,7 +909,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Banana - Milk - Vanilla Ice Cream",
         "price": 228.42,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shakes-banana-milk-shake.webp",
         "arabicName": "ميلك تشيك موز",
         "arabicDescription": "ايس كريم فانيليا - موز - لبن"
       },
@@ -989,7 +919,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Blueberry - Vanilla Ice Cream",
         "price": 228.42,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shakes-blueberry-milk-shake.webp",
         "arabicName": "ميلك تشيك بلوبيري",
         "arabicDescription": "ايس كريم فانيليا - بلوبيري"
       },
@@ -999,7 +929,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Oreo - Chocolate - Milk - Vanilla ice Cream",
         "price": 228.42,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shakes-oreo-milk-shake.webp",
         "arabicName": "ميلك تشيك اوريو",
         "arabicDescription": "ايس كريم فانيليا - شوكلت - اوريو - لبن"
       },
@@ -1009,19 +939,9 @@ const BEVERAGE_CATEGORIES = [
         "description": "Cheese Cake With Flavor - Vanilla Ice Cream",
         "price": 298.6875,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shakes-cheese-cake-milk-shake.webp",
         "arabicName": "ميلك تشيك تشيز كيك",
         "arabicDescription": "ايس كريم فانيليا - تشيز كيك مع فليفر من اختيارك"
-      },
-      {
-        "id": "shakes-shadow-milkshake",
-        "name": "Shadow Milkshake",
-        "description": "Vanilla Ice Cream - KitKat - Marshmallow",
-        "price": 127.7,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "ميلك تشيك شادو",
-        "arabicDescription": "ايس كريم فانيليا - كيت كات - مارشيملو"
       }
     ]
   },
@@ -1036,7 +956,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Frappe - Espresso - Milk",
         "price": 194.805,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-frappuccino-classic.webp",
         "arabicName": "فرابتشينو",
         "arabicDescription": "فرابيه - اسبرسو - لبن"
       },
@@ -1046,7 +966,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Frappe - Milk - Your Choice of Flavors",
         "price": 199.26000000000002,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-frappe-flavours.webp",
         "arabicName": "فرابيه نكهات",
         "arabicDescription": "فرابيه - لبن - فليفر من اختيارك"
       },
@@ -1056,7 +976,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Chocolate Frappe - Milk",
         "price": 199.8675,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-frappe-chocolate.webp",
         "arabicName": "شوكلت فرابيه",
         "arabicDescription": "فرابيه شوكليت - لبن"
       },
@@ -1066,7 +986,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Frappe - Peanut Butter -Caramel - Milk",
         "price": 199.8675,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-frappe-mocha-nuts.webp",
         "arabicName": "موكا نتس فرابيه",
         "arabicDescription": "فرابيه - زبدة فول سوداني - كراميل - لبن"
       },
@@ -1076,19 +996,9 @@ const BEVERAGE_CATEGORIES = [
         "description": "Chocolate Frappe - Espresso - Milk",
         "price": 199.8675,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-frappuccino-mocha.webp",
         "arabicName": "فرابتشينو موكا",
         "arabicDescription": "فرابيه شوكليت - اسبرسو - لبن"
-      },
-      {
-        "id": "frappe-shadow-frappe",
-        "name": "Shadow Frappe",
-        "description": "Frappe - Peanut Butter - Caramel - Digestive Biscuit - Milk",
-        "price": 112.7,
-        "priceSource": "base",
-        "image": null,
-        "arabicName": "شادو فرابيه",
-        "arabicDescription": "فرابيه - زبدة فول سوداني - كراميل -بسكوت دايجيستيف-  لبن"
       },
       {
         "id": "frappe-ice-latte",
@@ -1096,7 +1006,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Espresso - Milk - Ice",
         "price": 167.265,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-ice-latte.webp",
         "arabicName": "ايس لاتيه",
         "arabicDescription": "اسبرسو - لبن - ثلج"
       },
@@ -1106,7 +1016,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Espresso - Chocolate - Milk - Ice",
         "price": 194.805,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-ice-mocha.webp",
         "arabicName": "ايس موكا",
         "arabicDescription": "اسبرسو - شوكليت - لبن - ثلج"
       },
@@ -1116,7 +1026,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Red tea - Ice",
         "price": 163.0125,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/frappe-ice-tea.webp",
         "arabicName": "ايس تي",
         "arabicDescription": "شاي احمر - ثلج"
       }
@@ -1133,7 +1043,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Brownies With ice Cream",
         "price": 257.175,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-brownies.webp",
         "arabicName": "براونيز",
         "arabicDescription": "كيك البراونيز مع ايس كريم"
       },
@@ -1143,7 +1053,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Cheese Cake With your Choice Of Flavor",
         "price": 257.175,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-cheese-cake.webp",
         "arabicName": "تشيز كيك",
         "arabicDescription": "تشيز كيك مع صوص من اختيارك"
       },
@@ -1153,7 +1063,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Molten Cake With Ice Cream",
         "price": 257.175,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-molten-ice-cream.webp",
         "arabicName": "مولتن كيك",
         "arabicDescription": "مولتن كيك مع ايس كريم"
       },
@@ -1163,7 +1073,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Oreo - Vanilla Ice Cream",
         "price": 257.175,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-oreo-madness.webp",
         "arabicName": "اوريو مادنس",
         "arabicDescription": "اوريو - ايس كريم فانيليا"
       },
@@ -1173,7 +1083,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Chocolate Cake",
         "price": 257.175,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-chocolate-cake.webp",
         "arabicName": "شوكلت كيك",
         "arabicDescription": "شوكليت كيك"
       },
@@ -1183,7 +1093,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Ice Cream 3 Scoops of Your Choice",
         "price": 257.175,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-ice-cream-3-scoops.webp",
         "arabicName": "ايس كريم",
         "arabicDescription": "3 بولات من اختيارك"
       },
@@ -1193,7 +1103,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Banana - Vanilla ice Cream",
         "price": 257.175,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-banana-split.webp",
         "arabicName": "بانانا سبليت",
         "arabicDescription": "موز- ايس كريم فانيليا"
       },
@@ -1203,7 +1113,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Lotus Biscuits - Cheese Cake",
         "price": 264.66749999999996,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-cheese-cake-lotus.webp",
         "arabicName": "تشيزكيك لوتس",
         "arabicDescription": "بسكوت لوتس - مع تشيز كيك"
       },
@@ -1213,7 +1123,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Cheese Cake - Vanilla Ice Cream",
         "price": 264.66749999999996,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-cheese-madness.webp",
         "arabicName": "تشيز مادنس",
         "arabicDescription": "ايس كريم فانيليا مع تشيز كيك"
       },
@@ -1223,7 +1133,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fluffy homemade pancakes served with maple syrup, fresh fruits & whipped cream.",
         "price": 282.4875,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-classic-pancake.webp",
         "arabicName": "بان كيك كلاسيك",
         "arabicDescription": "بان كيك منزلي هش يُقدم مع شراب القيقب والفواكه الطازجة والكريمة المخفوقة."
       },
@@ -1233,7 +1143,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Fluffy pancakes topped with Nutella, banana, strawberries & whipped cream.",
         "price": 298.89,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-nutella-pancake.webp",
         "arabicName": "بان كيك نوتيلا",
         "arabicDescription": "بان كيك هش مغطى بالنوتيلا والموز والفراولة والكريمة المخفوقة."
       },
@@ -1243,7 +1153,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Golden crispy waffle served with chocolate sauce, fresh seasonal fruits & whipped cream.",
         "price": 282.4875,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-classic-waffle.webp",
         "arabicName": "وافل كلاسيك",
         "arabicDescription": "وافل ذهبي مقرمش يُقدم مع صوص الشوكولاتة، والفواكه الطازجة الموسمية والكريمة المخفوقة."
       },
@@ -1253,7 +1163,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Golden crispy waffle topped with Nutella, banana, strawberries & whipped cream.",
         "price": 298.89,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-nutella-waffle.webp",
         "arabicName": "وافل نوتيلا",
         "arabicDescription": "وافل ذهبي مقرمش مغطى بالنوتيلا والموز والفراولة والكريمة المخفوقة."
       },
@@ -1263,7 +1173,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Golden crispy waffle topped with Lotus spread, crushed Lotus biscuits & whipped cream.",
         "price": 309.015,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-lotus-waffle.webp",
         "arabicName": "وافل لوتس",
         "arabicDescription": "وافل ذهبي مقرمش مغطى بكريمة اللوتس وبسكويت اللوتس المجروش والكريمة المخفوقة."
       },
@@ -1273,7 +1183,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Golden crispy waffle served with vanilla ice cream, chocolate sauce & fresh fruits.",
         "price": 329.265,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-waffle-ice-cream.webp",
         "arabicName": "وافل مع آيس كريم",
         "arabicDescription": "وافل ذهبي مقرمش يُقدم مع آيس كريم الفانيليا وصوص الشوكولاتة والفواكه الطازجة."
       },
@@ -1283,7 +1193,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Warm traditional Egyptian dessert with flaky pastry, rich milk & cream, raisins, coconut and mixed nuts.",
         "price": 282.4875,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-premium-om-ali.webp",
         "arabicName": "أم علي بريميوم",
         "arabicDescription": "حلوى مصرية تقليدية ساخنة، محضّرة من رقائق العجين المورّقة مع الحليب الغني والقشطة والزبيب وجوز الهند والمكسرات المشكلة"
       },
@@ -1293,7 +1203,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "Nutella - Lotus Spread - Chocolate Sauce - Honey - Fresh Fruits - Ice Cream Scoop - Whipped Cream",
         "price": 112.3875,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/dessert-extras.webp",
         "arabicName": "الإضافات",
         "arabicDescription": "نوتيلا - كريمة لوتس - صوص شوكولاتة - عسل - فواكه طازجة - سكوب آيس كريم - كريمة مخفوقة"
       }
@@ -1310,7 +1220,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 141.75,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shisha-shisha-maaseel.webp",
         "arabicName": "شيشه معسل",
         "arabicDescription": ""
       },
@@ -1320,7 +1230,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 330.75,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shisha-shisha-flavors.webp",
         "arabicName": "شيشه فواكهه",
         "arabicDescription": ""
       },
@@ -1330,7 +1240,7 @@ const BEVERAGE_CATEGORIES = [
         "description": "",
         "price": 415.8,
         "priceSource": "final",
-        "image": null,
+        "image": "assets/images/beverages/shisha-shisha-mix.webp",
         "arabicName": "شيشه ميكس",
         "arabicDescription": ""
       }

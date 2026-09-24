@@ -26,9 +26,7 @@ const MENU_DATA = {
   breakfast: [
     { id: 'omelette', name: 'Omelette', description: 'Omelette - Mushroom - Onion - Pepper - Butter - Jam - Toast', price: 238, image: 'assets/images/omelette.jpg', tags: [], tagTypes: [] },
     { id: 'club-sandwich', name: 'Club Sandwich', description: 'Chicken - Smoked Turkey - Salami - Cheddar - Lettuce - Mayonnaise - Toast', price: 356, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
-    { id: 'turkey-cheese-toast', name: 'Turkey Cheese Toast', description: 'Smoked turkey - Lettuce - Cheddar - Mayonnaise - Mustard - Tomato - Toast', price: 356, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'shadow-breakfast', name: 'Shadow Breakfast', description: 'Omelette - Frankfurter - Smoked Turkey - Mushroom - Cherry Tomato - Mashed Potatoes - Butter - Jam - Toast', price: 403, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'cheese-lovers-breakfast', name: 'Cheese Lovers Breakfast', description: 'Omelette - Cheddar - Roquefort - Romy cheese - Hot dog - Apple - Walnuts - Butter - Jam - Toast', price: 403, image: 'assets/images/cheese-lovers-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'oriental-breakfast', name: 'Oriental Breakfast', description: 'Beans - Falafel - Mexican Sausage - Omelette - Cheese WithTomato - Romy Cheese - French Fries - Assorted Luncheon Meat', price: 280, image: 'assets/images/oriental-egyptian-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'feteer-meshaltet', name: 'Feteer Meshaltet', description: 'Traditional Egyptian flaky pastry, freshly baked and served warm with two side dishes: morta, white honey, black honey, cream qeshta, or old cheese.', price: 538, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
   ],
@@ -66,7 +64,6 @@ const MENU_DATA = {
   'chicken-main': [
     { id: 'smoked-chicken-breast', name: 'Smoked Chicken Breast', description: 'Chicken Breast - Garlic - Ketchup - Salt - Pepper Sauce - Paprika - Olive Oil with two side dishes: smoked rice, fries, sauteed vegetables, or mashed potatoes.', price: 855, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'chicken-shish', name: 'Chicken Shish', description: 'Chicken Shish Tawook', price: 765, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
-    { id: 'boneless-grilled-chicken', name: 'Boneless Grilled Chicken', description: 'Boneless grilled chicken served with your choice of two side dishes.', price: 696, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'grilled-chicken', name: 'Grilled Chicken', description: 'Grilled chicken with two side dishes: rice, fries, sauteed vegetables, or mashed potatoes.', price: 765, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'chicken-pesto', name: 'Chicken Pesto', description: 'Grilled Chicken - Beef Bacon - Pesto Sauce with two side dishes.', price: 821, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'cordon-bleu', name: 'Cordon Bleu', description: 'Fried chicken stuffed with mozzarella, cheddar, and turkey with Richford sauce and two side dishes.', price: 807, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
@@ -85,15 +82,12 @@ const MENU_DATA = {
   ],
 
   pasta: [
-    { id: 'koshary', name: 'Koshary', description: 'Pasta - Rice - Lentils - Vermicelli - Onion - Chickpeas - Tomato sauce', price: 130, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'spaghetti-bolognese', name: 'Spaghetti Bolognese', description: 'Spaghetti Pasta - Minced Meat - Bolognese Sauce', price: 331, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'arrabbiata-pasta', name: 'Arrabbiata Pasta', description: 'Pasta - Mushroom - Olives - Olive Oil - Onion - Basil - Tomato Sauce - Parmesan - Cherry Tomato', price: 302, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'chicken-bbq-pasta', name: 'Chicken BBQ Pasta', description: 'Pasta - Grilled Chicken - Colored Pepper - Tomato Sauce - Parmesan', price: 350, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
-    { id: 'mabkabka', name: 'Mabkabka', description: 'Pasta - Beef pieces - Tomato sauce - Pepper', price: 355, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'four-cheese-pasta', name: 'Four Cheese Pasta', description: 'Pasta - White Sauce - Cheddar - Mozzarella - Parmesan', price: 331, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'chicken-alfredo-pasta', name: 'Chicken Alfredo Pasta', description: 'Pasta - Grilled Chicken - Mushroom - White Sauce - Parmesan', price: 355, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'chicken-pesto-pasta', name: 'Chicken Pesto Pasta', description: 'Pasta - Grilled Chicken - Mushroom - Pesto Sauce - Parmesan', price: 344, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
-    { id: 'shrimp-pesto-pasta', name: 'Shrimp Pesto Pasta', description: 'Pasta - Grilled shrimp - Mushroom - Pesto sauce - Parmesan', price: 292, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
     { id: 'seafood-pasta', name: 'Seafood Pasta', description: 'Pasta - Shrimp - Calamari - Sticks - Colored Pepper - White Sauce - Parmesan', price: 558, image: 'assets/images/tortilla-eggs.jpg', tags: [], tagTypes: [] },
   ],
 
@@ -104,14 +98,11 @@ const MENU_DATA = {
     { id: 'chicken-bbq-pizza', name: 'Chicken BBQ Pizza', description: 'Mozzarella - Grilled Chicken - Colored Pepper - Mushroom - BBQ Sauce', price: 339, image: 'assets/images/cheese-lovers-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'four-cheese-pizza', name: 'Four Cheese Pizza', description: 'Mozzarella - Cheddar - Parmesan - Roquefort', price: 339, image: 'assets/images/cheese-lovers-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'tuna-pizza', name: 'Tuna Pizza', description: 'Mozzarella - Tuna - Sweet Corn', price: 424, image: 'assets/images/cheese-lovers-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'shrimp-pizza', name: 'Shrimp Pizza', description: 'Mozzarella - Mushroom - Colored pepper - Shrimp - Parmesan', price: 279, image: 'assets/images/cheese-lovers-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'four-seasons-pizza', name: 'Four Seasons Pizza', description: 'Mozzarella - Grilled Chicken - Salami - Smoked Turkey - Colored Pepper - Mushroom - Parmesan', price: 547, image: 'assets/images/cheese-lovers-breakfast.jpg', tags: [], tagTypes: [] },
   ],
 
   sandwich: [
     { id: 'shish-tawook-sandwich', name: 'Shish Tawook Sandwich', description: 'Shish Tawook Sandwich - Fries', price: 250, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
-    { id: 'hawawshi', name: 'Hawawshi', description: 'Charcoal-grilled beef hawawshi', price: 150, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
-    { id: 'steak-burger', name: 'Steak Burger', description: 'Burger patty - Beef bacon - Mayonnaise - Mustard - Ketchup - Tomato - Cheddar - Lettuce - Onion - Fries - Bun', price: 261, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'classic-burger', name: 'Classic Burger', description: 'Burger - Mayonnaise - Mustard - Ketchup - Tomato - Cheddar - Lettuce - Onion - Fries - Bread', price: 314, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'cordon-bleu-sandwich', name: 'Cordon Bleu Sandwich', description: 'Cordon Bleu with mix cheese, mayonnaise, lettuce, sherry tomato, and fries.', price: 392, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
     { id: 'chicken-fajita-sandwich', name: 'Chicken Fajita Sandwich', description: 'Grilled Chicken - Colored Pepper - Onion - Mozzarella - Mayonnaise - Jalapeno - BBQ - Fries', price: 377, image: 'assets/images/club-sandwich.jpg', tags: [], tagTypes: [] },
@@ -120,18 +111,9 @@ const MENU_DATA = {
 
   'food-extras': [
     { id: 'extra-cheese', name: 'Extra Cheese', description: 'Your choice of food extras', price: 83, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-sauce', name: 'Extra Sauce', description: 'Your choice of extra sauce', price: 83, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
+    { id: 'extra-cheese-fries', name: 'Extra Cheese Fries', description: 'Your choice of food extras', price: 83, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
     { id: 'extra-french-fries', name: 'Extra French Fries', description: 'Your choice of food extras', price: 83, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-mashed-potatoes', name: 'Extra Mashed Potatoes', description: 'Your choice of food extras', price: 100, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-mushroom', name: 'Extra Mushroom', description: 'Your choice of food extras', price: 46, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-rice', name: 'Extra Rice', description: 'Your choice of food extras', price: 46, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-sauteed-vegetables', name: 'Extra Sauteed Vegetables', description: 'Your choice of food extras', price: 46, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-calamari', name: 'Extra Calamari', description: 'Your choice of food extras', price: 86, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-cold-cuts', name: 'Extra Cold Cuts', description: 'Your choice of food extras', price: 86, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-pasta', name: 'Extra Pasta', description: 'Your choice of food extras', price: 86, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-chicken', name: 'Extra Chicken', description: 'Your choice of food extras', price: 86, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-shrimp', name: 'Extra Shrimp', description: 'Your choice of food extras', price: 135, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
-    { id: 'extra-beef', name: 'Extra Beef', description: 'Your choice of food extras', price: 161, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
+    { id: 'extra-mushroom', name: 'Extra Mushroom', description: 'Your choice of food extras', price: 100, image: 'assets/images/fatar-breakfast.jpg', tags: [], tagTypes: [] },
   ],
 };
 
@@ -405,6 +387,7 @@ const ICONS = {
  * @returns {string} HTML string
  */
 function buildCardHTML(item) {
+  const isBeverage = item.image?.startsWith('assets/images/beverages/');
   const arabic = currentLanguage === 'ar' ? ARABIC_MENU[item.id] : null;
   const name = arabic ? arabic[0] : item.name;
   const description = arabic ? arabic[1] : item.description;
@@ -423,7 +406,7 @@ function buildCardHTML(item) {
     ? `<div class="food-card__img-placeholder" aria-hidden="true">${PLACEHOLDER_ICON}</div>`
     : `
     <img
-      src="assets/images/menu/${item.id}.webp"
+      src="${escapeHTML(item.image?.startsWith('assets/images/beverages/') ? item.image : `assets/images/menu/${item.id}.webp`)}"
       alt="${safeName}"
       class="food-card__img"
       loading="lazy"
@@ -438,7 +421,7 @@ function buildCardHTML(item) {
     : '';
 
   return `
-    <article class="food-card" aria-label="${safeName}, ${formatPrice(item.price)} ${currency}">
+    <article class="food-card${isBeverage ? ' food-card--beverage' : ''}" aria-label="${safeName}, ${formatPrice(item.price)} ${currency}">
       <div class="food-card__img-wrap">
         ${imgHTML}
       </div>
@@ -549,18 +532,28 @@ function initCategoryTabs() {
       });
 
       // Update sections
+      let activeSection = null;
       sections.forEach(section => {
         const isActive = section.id === `section-${target}`;
         section.hidden = !isActive;
         section.classList.toggle('menu-section--active', isActive);
+        if (isActive) activeSection = section;
       });
 
-      // Scroll active tab into view (horizontal scroll)
-      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+      const track = tab.closest('.categories__track');
+      if (track) {
+        const tabRect = tab.getBoundingClientRect();
+        const trackRect = track.getBoundingClientRect();
+        track.scrollBy({
+          left: tabRect.left + tabRect.width / 2 - (trackRect.left + trackRect.width / 2),
+          behavior: scrollBehavior,
+        });
+      }
       updateHeroTitle(target);
 
-      // Re-init animations for newly revealed cards
       requestAnimationFrame(() => {
+        activeSection?.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
         initCardAnimations();
       });
     });
@@ -724,22 +717,6 @@ function initLanguageToggle() {
 }
 
 /* ================================================================
-   HERO — Explore Menu button smooth scroll
-   ================================================================ */
-function initHeroScroll() {
-  const cta = $('.hero__cta');
-  if (!cta) return;
-
-  cta.addEventListener('click', (e) => {
-    const target = document.querySelector(cta.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-}
-
-/* ================================================================
    SPLASH SCREEN
    ================================================================ */
 function initSplash() {
@@ -798,7 +775,6 @@ function init() {
   initMenuNavigation();
   initOfferCarousel();
   initSideNav();
-  initHeroScroll();
 
   // Start observing cards immediately; the previous delay left cards invisible.
   requestAnimationFrame(initCardAnimations);

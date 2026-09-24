@@ -49,6 +49,15 @@ test('menu view has a labeled home link and no redundant explore button', () => 
 
 test('offers carousel pauses briefly after user interaction and moments stay separate', () => {
   assert.doesNotMatch(html, /id="offerToggle"/);
+  assert.equal((html.match(/class="offer-slide(?: offer-slide--active)?"/g) || []).length, 3);
+  assert.doesNotMatch(html, /class="offer-slide__cta"/);
+  for (const image of [
+    'pizza-night.webp', 'pizza-night-mobile.webp',
+    'rooftop-grill.webp', 'rooftop-grill-mobile.webp',
+    'signature-sips.webp', 'signature-sips-mobile.webp',
+  ]) {
+    assert.ok(fs.existsSync(path.join(root, 'assets', 'images', 'offers', image)), `Missing ${image}`);
+  }
   assert.ok(html.indexOf('id="offers"') < html.indexOf('id="moments"'));
   assert.match(source, /resumeAt = Date\.now\(\) \+ 8000/);
 });
@@ -68,7 +77,8 @@ test('switching card language preserves its price and image', () => {
 });
 
 test('every food item has its own optimized image', () => {
-  const items = Object.values(context.menuTest.MENU_DATA).flat().filter(item => item.image !== null);
+  const items = Object.values(context.menuTest.MENU_DATA).flat()
+    .filter(item => item.image !== null && !item.image.startsWith('assets/images/beverages/'));
   for (const item of items) {
     assert.ok(
       fs.existsSync(path.join(root, 'assets', 'images', 'menu', `${item.id}.webp`)),
@@ -77,26 +87,53 @@ test('every food item has its own optimized image', () => {
   }
 });
 
-test('beverage categories use the workbook data and reserve image slots without photos', () => {
+test('removed menu items stay out and Food Extras contains only the requested four', () => {
+  const { MENU_DATA } = context.menuTest;
+  const itemIds = JSON.parse(JSON.stringify(Object.values(MENU_DATA).flat().map(item => item.id)));
+  const removedIds = [
+    'turkey-cheese-toast', 'cheese-lovers-breakfast', 'boneless-grilled-chicken',
+    'koshary', 'mabkabka', 'shrimp-pesto-pasta', 'shrimp-pizza', 'hawawshi', 'steak-burger',
+    'hot-beverages-shadow-green-tea-pot', 'hot-beverages-fenugreek', 'hot-beverages-fenugreek-with-milk',
+    'hot-beverages-hot-platter', 'hot-beverages-hot-peanuts', 'cocktails-shadow-cocktail',
+    'granita-shadow-granita', 'shakes-shadow-milkshake', 'frappe-shadow-frappe',
+  ];
+  assert.equal(itemIds.some(id => removedIds.includes(id)), false);
+  assert.deepEqual(
+    JSON.parse(JSON.stringify(MENU_DATA['food-extras'].map(item => item.id))),
+    ['extra-cheese', 'extra-cheese-fries', 'extra-french-fries', 'extra-mushroom'],
+  );
+  assert.equal(MENU_DATA['food-extras'][1].price, 83);
+});
+
+test('every workbook beverage item has its own generated photo', () => {
   const { MENU_DATA, BEVERAGE_CATEGORIES, buildCardHTML } = context.menuTest;
   vm.runInContext("currentLanguage = 'en'", context);
   assert.equal(BEVERAGE_CATEGORIES.length, 11);
-  assert.equal(BEVERAGE_CATEGORIES.reduce((count, category) => count + category.items.length, 0), 126);
+  assert.equal(BEVERAGE_CATEGORIES.reduce((count, category) => count + category.items.length, 0), 117);
+  const teaItem = MENU_DATA['hot-beverages'][0];
+  assert.equal(teaItem.image, 'assets/images/beverages/hot-beverages-tea.webp');
+  assert.ok(fs.existsSync(path.join(root, teaItem.image)));
 
   for (const category of BEVERAGE_CATEGORIES) {
     assert.equal(MENU_DATA[category.key].length, category.items.length);
     for (const item of MENU_DATA[category.key]) {
-      assert.equal(item.image, null, `${item.id} should not load a photo yet`);
+      assert.ok(item.image, `${item.id} should have an image path`);
+      assert.ok(fs.existsSync(path.join(root, item.image)), `Missing image for ${item.id}`);
       assert.ok(item.price > 0, `${item.id} should not display a zero price`);
     }
   }
 
-  const tea = buildCardHTML(MENU_DATA['hot-beverages'][0]);
+  const tea = buildCardHTML(teaItem);
   assert.match(tea, /Tea/);
-  assert.match(tea, /food-card__img-placeholder/);
-  assert.doesNotMatch(tea, /<img\b/);
+  assert.match(tea, /assets\/images\/beverages\/hot-beverages-tea\.webp/);
+  assert.match(tea, /food-card--beverage/);
+  assert.match(tea, /<img\b/);
+  const greenTea = buildCardHTML(MENU_DATA['hot-beverages'][1]);
+  assert.match(greenTea, /assets\/images\/beverages\/hot-beverages-green-tea\.webp/);
+  assert.match(greenTea, /<img\b/);
   vm.runInContext("currentLanguage = 'ar'", context);
-  assert.match(buildCardHTML(MENU_DATA['hot-beverages'][0]), /شاي/);
+  assert.match(buildCardHTML(teaItem), /شاي/);
+  assert.match(buildCardHTML(teaItem), /assets\/images\/beverages\/hot-beverages-tea\.webp/);
 });
 
 test('beverage categories create matching accessible tabs and sections', () => {
@@ -136,6 +173,59 @@ test('beverage categories create matching accessible tabs and sections', () => {
     assert.equal(section.attributes['aria-labelledby'], tab.id);
     assert.equal(section.children[0].id, `${category.key}-items`);
   }
+});
+
+test('category changes scroll the new section to its beginning', () => {
+  const createClassList = () => ({ toggle() {}, contains: () => false, add() {} });
+  const track = {
+    scrollBy(options) { this.scrollOptions = options; },
+    getBoundingClientRect: () => ({ left: 0, width: 300 }),
+  };
+  const tab = {
+    dataset: { category: 'soup' },
+    classList: createClassList(),
+    listeners: {},
+    setAttribute() {},
+    addEventListener(name, callback) { this.listeners[name] = callback; },
+    closest: () => track,
+    getBoundingClientRect: () => ({ left: 180, width: 90 }),
+  };
+  const section = {
+    id: 'section-soup',
+    classList: createClassList(),
+    querySelectorAll: () => [],
+    scrollIntoView(options) { this.scrollOptions = options; },
+  };
+  const previousSection = {
+    id: 'section-breakfast',
+    classList: createClassList(),
+  };
+  const heroTitle = { textContent: '' };
+  const page = {
+    querySelector(selector) {
+      if (selector === '.hero__title') return heroTitle;
+      if (selector === '.menu-section--active') return section;
+      return null;
+    },
+    querySelectorAll(selector) {
+      if (selector === '[data-category]') return [tab];
+      if (selector === '.menu-section') return [previousSection, section];
+      if (selector === '.food-card') return [];
+      return [];
+    },
+  };
+  const liveContext = vm.createContext({
+    window: { matchMedia: () => ({ matches: true }) },
+    document: page,
+    requestAnimationFrame(callback) { callback(); },
+  });
+  vm.runInContext(`${source}\ninitCategoryTabs();`, liveContext);
+  tab.listeners.click();
+
+  assert.equal(previousSection.hidden, true);
+  assert.equal(section.hidden, false);
+  assert.equal(section.scrollOptions.block, 'start');
+  assert.equal(track.scrollOptions.behavior, 'auto');
 });
 
 test('language buttons update the page and keep the selected category', () => {
