@@ -228,6 +228,57 @@ test('category changes scroll the new section to its beginning', () => {
   assert.equal(track.scrollOptions.behavior, 'auto');
 });
 
+test('opening the menu only moves focus to its first category for keyboard activation', () => {
+  function openMenu(detail) {
+    const createElement = (extra = {}) => ({
+      dataset: {},
+      attributes: {},
+      listeners: {},
+      classList: { toggle() {} },
+      setAttribute(name, value) { this.attributes[name] = value; },
+      addEventListener(name, callback) { this.listeners[name] = callback; },
+      ...extra,
+    });
+    const app = createElement({ dataset: {} });
+    const home = createElement();
+    const menu = createElement({ scrollIntoView() {} });
+    const tab = createElement({
+      dataset: { category: 'breakfast' },
+      getAttribute: () => 'true',
+      click() { this.clicked = true; },
+      focus(options) { this.focusOptions = options; },
+    });
+    const section = createElement({ id: 'section-breakfast' });
+    const control = createElement({ dataset: { openMenu: 'food' } });
+    const page = {
+      querySelector(selector) {
+        if (selector === '#app') return app;
+        if (selector === '#home') return home;
+        if (selector === '#menu') return menu;
+        return null;
+      },
+      querySelectorAll(selector) {
+        if (selector === '[data-category]') return [tab];
+        if (selector === '[data-menu-type-choice]' || selector === '[data-go-home]') return [];
+        if (selector === '.menu-section') return [section];
+        if (selector === '[data-open-menu]') return [control];
+        return [];
+      },
+    };
+    const liveContext = vm.createContext({
+      window: { matchMedia: () => ({ matches: true }), scrollTo() {} },
+      document: page,
+      requestAnimationFrame(callback) { callback(); },
+    });
+    vm.runInContext(`${source}\ninitMenuNavigation();`, liveContext);
+    control.listeners.click({ detail, preventDefault() {} });
+    return tab.focusOptions;
+  }
+
+  assert.equal(openMenu(1), undefined);
+  assert.deepEqual(JSON.parse(JSON.stringify(openMenu(0))), { preventScroll: true });
+});
+
 test('language buttons update the page and keep the selected category', () => {
   const makeElement = (extra = {}) => ({
     textContent: '',

@@ -230,7 +230,7 @@ function initMenuNavigation() {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'instant' : 'smooth' });
   }
 
-  function showMenu(type) {
+  function showMenu(type, sourceEvent) {
     const allowedTabs = tabs.filter(tab => tab.dataset.menuType === type);
     if (!allowedTabs.length) return;
 
@@ -250,7 +250,7 @@ function initMenuNavigation() {
     home.setAttribute('aria-hidden', 'true');
     menu.setAttribute('aria-hidden', 'false');
     allowedTabs[0].click();
-    allowedTabs[0].focus({ preventScroll: true });
+    if (sourceEvent?.detail === 0) allowedTabs[0].focus({ preventScroll: true });
     requestAnimationFrame(() => {
       menu.scrollIntoView({ behavior: prefersReducedMotion ? 'instant' : 'smooth', block: 'start' });
     });
@@ -259,7 +259,7 @@ function initMenuNavigation() {
   $$('[data-open-menu]').forEach(control => {
     control.addEventListener('click', event => {
       event.preventDefault();
-      showMenu(control.dataset.openMenu);
+      showMenu(control.dataset.openMenu, event);
     });
   });
 
@@ -271,7 +271,7 @@ function initMenuNavigation() {
   });
 
   switchButtons.forEach(button => {
-    button.addEventListener('click', () => showMenu(button.dataset.menuTypeChoice));
+    button.addEventListener('click', event => showMenu(button.dataset.menuTypeChoice, event));
   });
 }
 
