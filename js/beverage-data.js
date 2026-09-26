@@ -1129,7 +1129,7 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "dessert-classic-pancake",
-        "name": "CLASSIC PANCAKE",
+        "name": "Classic Pancake",
         "description": "Fluffy homemade pancakes served with maple syrup, fresh fruits & whipped cream.",
         "price": 282.4875,
         "priceSource": "final",
@@ -1139,7 +1139,7 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "dessert-nutella-pancake",
-        "name": "NUTELLA PANCAKE",
+        "name": "Nutella Pancake",
         "description": "Fluffy pancakes topped with Nutella, banana, strawberries & whipped cream.",
         "price": 298.89,
         "priceSource": "final",
@@ -1149,7 +1149,7 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "dessert-classic-waffle",
-        "name": "CLASSIC WAFFLE",
+        "name": "Classic Waffle",
         "description": "Golden crispy waffle served with chocolate sauce, fresh seasonal fruits & whipped cream.",
         "price": 282.4875,
         "priceSource": "final",
@@ -1159,7 +1159,7 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "dessert-nutella-waffle",
-        "name": "NUTELLA WAFFLE",
+        "name": "Nutella Waffle",
         "description": "Golden crispy waffle topped with Nutella, banana, strawberries & whipped cream.",
         "price": 298.89,
         "priceSource": "final",
@@ -1169,7 +1169,7 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "dessert-lotus-waffle",
-        "name": "LOTUS WAFFLE",
+        "name": "Lotus Waffle",
         "description": "Golden crispy waffle topped with Lotus spread, crushed Lotus biscuits & whipped cream.",
         "price": 309.015,
         "priceSource": "final",
@@ -1179,7 +1179,7 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "dessert-waffle-ice-cream",
-        "name": "WAFFLE & ICE CREAM",
+        "name": "Waffle & Ice Cream",
         "description": "Golden crispy waffle served with vanilla ice cream, chocolate sauce & fresh fruits.",
         "price": 329.265,
         "priceSource": "final",
@@ -1189,13 +1189,23 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "dessert-premium-om-ali",
-        "name": "PREMIUM OM ALI",
+        "name": "Premium Om Ali",
         "description": "Warm traditional Egyptian dessert with flaky pastry, rich milk & cream, raisins, coconut and mixed nuts.",
         "price": 282.4875,
         "priceSource": "final",
         "image": "assets/images/beverages/dessert-premium-om-ali.webp",
         "arabicName": "أم علي بريميوم",
         "arabicDescription": "حلوى مصرية تقليدية ساخنة، محضّرة من رقائق العجين المورّقة مع الحليب الغني والقشطة والزبيب وجوز الهند والمكسرات المشكلة"
+      },
+      {
+        "id": "dessert-donuts",
+        "name": "Donuts",
+        "description": "Freshly made ring donuts.",
+        "price": 282.4875,
+        "priceSource": "final",
+        "image": "assets/images/beverages/dessert-donuts.webp",
+        "arabicName": "دونات",
+        "arabicDescription": "دونات حلقية طازجة"
       },
       {
         "id": "dessert-extras",

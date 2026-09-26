@@ -6,6 +6,7 @@ const vm = require('node:vm');
 
 const root = path.join(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const css = fs.readFileSync(path.join(root, 'css', 'style.css'), 'utf8');
 const source = [
   fs.readFileSync(path.join(root, 'js', 'beverage-data.js'), 'utf8'),
   fs.readFileSync(path.join(root, 'js', 'translations.js'), 'utf8'),
@@ -109,7 +110,12 @@ test('every workbook beverage item has its own generated photo', () => {
   const { MENU_DATA, BEVERAGE_CATEGORIES, buildCardHTML } = context.menuTest;
   vm.runInContext("currentLanguage = 'en'", context);
   assert.equal(BEVERAGE_CATEGORIES.length, 11);
-  assert.equal(BEVERAGE_CATEGORIES.reduce((count, category) => count + category.items.length, 0), 117);
+  assert.equal(BEVERAGE_CATEGORIES.reduce((count, category) => count + category.items.length, 0), 118);
+  const donuts = MENU_DATA.dessert.find(item => item.id === 'dessert-donuts');
+  const classicWaffle = MENU_DATA.dessert.find(item => item.id === 'dessert-classic-waffle');
+  assert.ok(donuts);
+  assert.equal(donuts.price, classicWaffle.price);
+  assert.equal(donuts.image, 'assets/images/beverages/dessert-donuts.webp');
   const teaItem = MENU_DATA['hot-beverages'][0];
   assert.equal(teaItem.image, 'assets/images/beverages/hot-beverages-tea.webp');
   assert.ok(fs.existsSync(path.join(root, teaItem.image)));
@@ -134,6 +140,29 @@ test('every workbook beverage item has its own generated photo', () => {
   vm.runInContext("currentLanguage = 'ar'", context);
   assert.match(buildCardHTML(teaItem), /شاي/);
   assert.match(buildCardHTML(teaItem), /assets\/images\/beverages\/hot-beverages-tea\.webp/);
+});
+
+test('Donuts uses title case and menu prices keep the amount readable on both sides', () => {
+  const { MENU_DATA, buildCardHTML } = context.menuTest;
+  const expectedDessertNames = [
+    'Classic Pancake', 'Nutella Pancake', 'Classic Waffle', 'Nutella Waffle',
+    'Lotus Waffle', 'Waffle & Ice Cream', 'Premium Om Ali',
+  ];
+  const dessertNames = MENU_DATA.dessert.map(item => item.name);
+  for (const name of expectedDessertNames) assert.ok(dessertNames.includes(name), `Missing title-cased dessert: ${name}`);
+  assert.equal(dessertNames.some(name => name === name.toUpperCase()), false);
+
+  const donuts = MENU_DATA.dessert.find(item => item.id === 'dessert-donuts');
+  assert.equal(donuts.name, 'Donuts');
+  vm.runInContext("currentLanguage = 'en'", context);
+  assert.match(buildCardHTML(donuts), /<h2 class="food-card__name">Donuts<\/h2>/);
+  vm.runInContext("currentLanguage = 'ar'", context);
+  assert.match(buildCardHTML(donuts), /<h2 class="food-card__name">دونات<\/h2>/);
+
+  assert.match(css, /\.food-card__price-currency\s*\{[^}]*order:\s*2/s);
+  assert.match(css, /\.food-card__price-amount\s*\{[^}]*order:\s*1;[^}]*direction:\s*ltr;[^}]*unicode-bidi:\s*isolate/s);
+  assert.match(css, /html\[lang="ar"\] \.food-card__price-currency\s*\{[^}]*order:\s*1/s);
+  assert.match(css, /html\[lang="ar"\] \.food-card__price-amount\s*\{[^}]*order:\s*2/s);
 });
 
 test('beverage categories create matching accessible tabs and sections', () => {

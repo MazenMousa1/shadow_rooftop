@@ -1178,6 +1178,7 @@ html[lang="ar"] .home-scroll { letter-spacing: 0; }
 }
 
 .food-card__price-currency {
+  order: 2;
   font-family: var(--font-primary);
   font-size: 0.5625rem;
   font-weight: 600;
@@ -1188,6 +1189,9 @@ html[lang="ar"] .home-scroll { letter-spacing: 0; }
 }
 
 .food-card__price-amount {
+  order: 1;
+  direction: ltr;
+  unicode-bidi: isolate;
   font-family: var(--font-price);
   font-size: 1.0625rem;
   font-weight: 400;
@@ -1643,13 +1647,13 @@ html[lang="ar"] .food-card__price-currency {
   letter-spacing: 0;
   direction: rtl;
   unicode-bidi: isolate;
-  order: 2;
+  order: 1;
 }
 
 html[lang="ar"] .food-card__price-amount {
   font-size: 1.125rem;
   font-weight: 600;
-  order: 1;
+  order: 2;
 }
 
 html[lang="ar"] .food-card__price {
