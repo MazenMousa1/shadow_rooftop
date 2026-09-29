@@ -741,7 +741,7 @@ const BEVERAGE_CATEGORIES = [
       },
       {
         "id": "soda-94-red-bull-fusion-soda",
-        "name": "94. Red Bull Fusion Soda",
+        "name": "Red Bull Fusion Soda",
         "description": "Pineapple – Orange – Red Bull",
         "price": 279.045,
         "priceSource": "final",
