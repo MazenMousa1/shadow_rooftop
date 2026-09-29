@@ -172,6 +172,15 @@ function formatPrice(price) {
     : roundedPrice.toString();
 }
 
+function titleCase(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/(^|[\s\-–—/])([a-z])/g, (_, separator, letter) => separator + letter.toUpperCase())
+    .replace(/\bRedbull\b/g, 'RedBull')
+    .replace(/\bBbq\b/g, 'BBQ')
+    .replace(/\b7up\b/g, '7Up');
+}
+
 function updateHeroTitle(categoryKey) {
   const heroTitle = $('.hero__title');
   if (!heroTitle) return;
@@ -392,8 +401,8 @@ function buildCardHTML(item) {
   const name = arabic ? arabic[0] : item.name;
   const description = arabic ? arabic[1] : item.description;
   const currency = currentLanguage === 'ar' ? ARABIC_UI.currency : 'EGP';
-  const safeName = escapeHTML(name);
-  const safeDescription = escapeHTML(description);
+  const safeName = escapeHTML(arabic ? name : titleCase(name));
+  const safeDescription = escapeHTML(arabic ? description : titleCase(description));
   // Build tags HTML
   const tagsHTML = item.tags.map((tag, i) => {
     const type = item.tagTypes[i] || '';

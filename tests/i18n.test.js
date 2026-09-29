@@ -49,6 +49,7 @@ test('menu view has a labeled home link and no redundant explore button', () => 
 });
 
 test('offers carousel pauses briefly after user interaction and moments stay separate', () => {
+  assert.match(html, /<section id="offers" class="home-offers"[^>]*\shidden>/);
   assert.doesNotMatch(html, /id="offerToggle"/);
   assert.equal((html.match(/class="offer-slide(?: offer-slide--active)?"/g) || []).length, 3);
   assert.doesNotMatch(html, /class="offer-slide__cta"/);
@@ -163,6 +164,22 @@ test('Donuts uses title case and menu prices keep the amount readable on both si
   assert.match(css, /\.food-card__price-amount\s*\{[^}]*order:\s*1;[^}]*direction:\s*ltr;[^}]*unicode-bidi:\s*isolate/s);
   assert.match(css, /html\[lang="ar"\] \.food-card__price-currency\s*\{[^}]*order:\s*1/s);
   assert.match(css, /html\[lang="ar"\] \.food-card__price-amount\s*\{[^}]*order:\s*2/s);
+});
+
+test('menu item names and ingredient descriptions use title case in English only', () => {
+  const { MENU_DATA, buildCardHTML } = context.menuTest;
+  vm.runInContext("currentLanguage = 'en'", context);
+  const brownies = MENU_DATA.dessert.find(item => item.id === 'dessert-brownies');
+  const renderedBrownies = buildCardHTML(brownies);
+  assert.match(renderedBrownies, /<p class="food-card__desc">Brownies With Ice Cream<\/p>/);
+
+  const mojito = MENU_DATA.soda.find(item => item.id === 'soda-virgin-mojito');
+  assert.match(buildCardHTML(mojito), /Mojito Flavor – Lemon – Mint – 7Up/);
+  const barbecuePizza = MENU_DATA.pizza.find(item => item.id === 'chicken-bbq-pizza');
+  assert.match(buildCardHTML(barbecuePizza), /BBQ Sauce/);
+
+  vm.runInContext("currentLanguage = 'ar'", context);
+  assert.match(buildCardHTML(brownies), /كيك البراونيز مع ايس كريم/);
 });
 
 test('beverage categories create matching accessible tabs and sections', () => {
