@@ -50,6 +50,7 @@ test('menu view has a labeled home link and no redundant explore button', () => 
 
 test('offers carousel pauses briefly after user interaction and moments stay separate', () => {
   assert.match(html, /<section id="offers" class="home-offers"[^>]*\shidden>/);
+  assert.match(html, /<a class="home-scroll"[^>]*\shidden>/);
   assert.doesNotMatch(html, /id="offerToggle"/);
   assert.equal((html.match(/class="offer-slide(?: offer-slide--active)?"/g) || []).length, 3);
   assert.doesNotMatch(html, /class="offer-slide__cta"/);
